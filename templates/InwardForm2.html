@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inward Form 2</title>
+    {% load static %}
+    <style>
+        * {
+            padding: 0%;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .RecircleLogo {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+
+        .RecircleLogo img {
+            width: 250px;
+        }
+
+        .RegisterVendorForm1 {
+            text-align: center;
+            font-size: 35px;
+            color: #3D3738;
+        }
+
+        .Email {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+
+        }
+
+        #EmailField {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 20px;
+            border: none;
+            border-radius: 9px;
+        }
+
+        .Horizontal {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            margin-top: 50px;
+            transform: translate(30px, 0px);
+            width: 70%;
+        }
+
+        .LeftColumn {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-end;
+            flex-direction: column;
+            flex: 20;
+            padding-right: 40px;
+
+        }
+
+        .RightColumn {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            flex: 15;
+        }
+
+        .RightColumn input {
+            width: 200px;
+        }
+
+        .Horizontal label {
+            margin-top: 30px;
+            font-size: 28px;
+        }
+
+        .SubmitButton {
+            width: 30%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: 110px;
+
+        }
+
+        .SubmitButton a {
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        .SubmitContainer {
+            display: flex;
+            justify-content: center;
+            margin-top: -75px;
+        }
+
+        nav {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+        }
+
+        nav p {
+            font-family: arial;
+            color: #222;
+            font-size: 24px;
+            line-height: 55px;
+            float: left;
+            padding: 0px 20px;
+        }
+
+        nav ul {
+            float: left;
+            margin-top: 4px;
+        }
+
+        nav ul li {
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+
+        nav ul li img {
+            position: absolute;
+            right: 10px;
+            top: 13px;
+            width: 45px;
+
+        }
+
+
+        nav ul li a {
+            display: block;
+            font-family: arial;
+            color: #222;
+            font-size: 14px;
+            padding: 21px 14px;
+            text-decoration: none;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 10px;
+            border-radius: 9px;
+            border: 2px solid black;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 180px;
+            border-radius: 4px;
+
+        }
+
+        nav ul li ul li a {
+            padding: 8px 14px;
+
+        }
+
+        nav ul li ul li a:hover {
+            background-color: rgba(113, 164, 242, 0.16);
+        }
+
+        #Optionbox {
+            background-color: rgba(113, 164, 242, 0.21);
+            border-radius: 9px;
+            width: 100%;
+        }
+
+        nav ul {
+            width: 100%;
+        }
+
+        .MaterialContainer {
+            color: #3D3738;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .MaterialContainer img {
+            width: 100px;
+        }
+
+        .EmptyBox {
+            height: 116px;
+        }
+
+        .Uploaded {
+            color: #56946C;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .MaterialPictures {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .MinPictures {
+            font-size: 16px;
+            font-weight: 100;
+        }
+
+        .circle {
+            display: block;
+            height: 30px;
+            width: 30px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            background-color: #07004D;
+            padding: 9px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            margin-right: 17px;
+            margin-top: 5px;
+        }
+        .circle2 {
+            display: block;
+            height: 30px;
+            width: 30px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            background-color: #07004D;
+            padding: 9px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            margin-right: 17px;
+            margin-top: 5px;
+        }
+
+
+        .circle:hover {
+            cursor: pointer;
+        }
+        .circle2:hover {
+            cursor: pointer;
+        }
+
+        .linewrapper {
+            transition: 0.3s ease;
+
+        }
+        .linewrapper2 {
+            transition: 0.3s ease;
+
+        }
+
+        .horizontal,
+        .vertical {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            pointer-events: none;
+        }
+
+        .vertical {
+            position: relative;
+            bottom: 2px;
+            transform: rotate(90deg);
+            transition: 0.3s ease;
+        }
+
+        .vertical.open {
+            transform: rotate(180deg);
+        }
+
+        .linewrapper.open {
+            transform: rotate(180deg);
+        }
+        .linewrapper2.open {
+            transform: rotate(180deg);
+        }
+
+        .content {
+            margin-top: 8px;
+            height: 0px;
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 0px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            border-radius: 9px;
+        }
+
+        .content2 {
+            margin-top: 8px;
+            height: 0px;
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 0px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            border-radius: 9px;
+        }
+
+        .contentwrapper {
+            padding: 10px;
+        }
+
+        .contentwrapper p:hover {
+            background-color: rgba(113, 164, 242, 0.16);
+            cursor: pointer;
+
+        }
+
+        .contentwrapper p {
+            padding: 20px;
+            border-radius: 9px;
+        }
+
+        .content.open {
+            height: min-content;
+            border-radius: 9px;
+
+        }
+
+        .content2.open {
+            height: min-content;
+            border-radius: 9px;
+
+        }
+
+        .DropdownField {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(113, 164, 242, 0.21);
+            border-radius: 9px;
+            padding: 12px;
+            padding-right: 0px;
+
+        }
+
+        .DropdownField p {
+            color: grey;
+            font-size: 20px;
+
+        }
+
+        .ScanButton {
+            border-radius: 22px;
+            background-color: #C4C4C4;
+            color: white;
+            padding: 13px 22px;
+            height: 45px;
+        }
+
+        .Addmaterialbutton{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: -30px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border: #CCCCCC 2px solid;
+            border-radius: 9px;
+            width: 260px;
+            padding: 10px 25px;
+        }
+
+        .Addmaterialbutton img{
+            width: 45px;
+        }
+       
+        .Addmaterialbutton p{
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        #MaterialStats{
+            background-color: white;
+            border: none;
+            padding: 14px;
+            padding-left: 0px;
+            font-size: 25px;
+        }
+
+        .CommentField{
+           padding: 50px;
+           border: 2px solid grey;
+           border-radius: 9px;
+           margin: auto;
+           width: 300px;
+           margin-top: 30px;
+           margin-left: 500px;
+    }
+
+    .Comment{
+        margin-left: 280px;
+        margin-top: 25px;
+    }
+
+    .Comment label{
+        font-size: 23px;
+    }
+
+    .Comment input{
+        padding: 20px ;
+    }
+
+    .content p{
+        color: #3D3738;
+    }
+
+    .Vertical{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .Buttons{
+    display: flex;
+    justify-content: center;
+
+}
+
+.Empty1{
+    width: 150px;
+}
+
+.SubmitButton{
+width: 300px
+}
+
+.RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#navigation{
+    z-index: 500;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+    font-size: 20px;
+    }
+    
+
+    </style>
+
+</head>
+
+<body>
+    <div class =  "RecircleLogo">
+    
+        <div id="navigation">
+            <div id="menuu" onclick = "onClickmenuu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <ul class="navigate" id="navigate">
+                <li><a href = "{% url 'HomePage' %}">Home</a></li>
+                <li><a href = "{% url 'ProfilePage' %}">My Profile</a></li>     
+                <li><a href = "{% url 'InwardForm1' %}">Log Material</a></li>
+                <li><a href = "{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+                <li><a href = "{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+                <li><a href = "{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+                <li><a href = "{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+                <li><a href = "{% url 'Login' %}">Log Out</a></li>       
+    
+            </ul>
+        </div>
+    
+        <a href = "{% url 'HomePage' %}">
+            <img src = "{% static 'images/RecircleLogo.png' %}">
+          </a>
+          
+        </div>
+    <div class="RegisterVendorForm1">
+        <h1>Inward Form</h1>
+    </div>
+
+    <div class = "Addmaterialbutton">
+        <img src = "{% static 'images/plus.png' %}">
+        <p>Add Material</p>
+    </div>
+
+    <div class="Vertical">
+    <div class="Horizontal">
+        <div class="LeftColumn">
+
+            <div class="Email">
+                <label>Material Type*</label>
+                <div class="DropdownField">
+                    <p>Select Option</p>
+                    <button class="circle">
+                        <div class="linewrapper">
+                            <div class="horizontal"></div>
+                            <div class="vertical"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="content">
+                    <div class="contentwrapper">
+                        <p>Rigid Plastic</p>
+                        <p>Flexible Plastic</p>
+                        <p>Multi-Layered Plastic</p>
+                        <p>Mixed Plastic</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class = "Email">
+                <label for = "Vendor_Email">Rate </label>
+                <p id = "MaterialStats" >1000</p>
+            </div>
+
+
+
+
+            <div class="Email">
+                <label>Material Type*</label>
+                <div class="DropdownField">
+                    <p>Select Option</p>
+                    <button class="circle2">
+                        <div class="linewrapper2">
+                            <div class="horizontal"></div>
+                            <div class="vertical"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="content2">
+                    <div class="contentwrapper">
+                        <p>Rigid Plastic</p>
+                        <p>Flexible Plastic</p>
+                        <p>Multi-Layered Plastic</p>
+                        <p>Mixed Plastic</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class = "Email">
+                <label for = "Vendor_Email">Rate </label>
+                <p id = "MaterialStats" >1000</p>
+            </div>
+
+        </div>
+
+        <div class="RightColumn">
+
+            <div class="Email">
+                <label for="Vendor_Email"> Quantity (in metric tonnes)* </label>
+                <input id="EmailField" type="text" name=" Vendor_Email">
+            </div>
+
+            <div class = "Email">
+                <label for = "Vendor_Email" style="color: #56946C;" >Amount </label>
+                <p id = "MaterialStats" style="color: #56946C;">1000 Rs</p>
+            </div>
+
+            <div class="Email">
+                <label for="Vendor_Email"> Quantity (in metric tonnes)* </label>
+                <input id="EmailField" type="text" name=" Vendor_Email">
+            </div>
+
+            <div class = "Email">
+                <label for = "Vendor_Email" style="color: #56946C;">Amount </label>
+                <p id = "MaterialStats" style="color: #56946C;" >1000 Rs</p>
+            </div>
+
+
+        </div>
+        
+    </div>
+    <div class = "Email Comment">
+        <label for = "Phone"> Comments </label>
+        <input id = "CommentField" type = "text" name = "Phone">
+    </div>
+</div>
+
+
+
+<div class = "Buttons">
+    <div class = "SubmitContainer">
+        <div class = "SubmitButton">
+            <a href = "{% url 'InwardForm1' %}">Back</a>
+        </div>
+    </div>
+    <div class = "Empty1"></div>
+    <div class = "SubmitContainer">
+        <div class = "SubmitButton">
+            <a href = "{% url 'SuccessInward' %}">Submit</a>
+        </div>
+    </div>
+    </div>
+    <script>
+
+        document.querySelector('.circle').addEventListener('click', () => {
+            document.querySelector('.vertical').classList.toggle('open');
+            document.querySelector('.linewrapper').classList.toggle('open');
+            document.querySelector('.content').classList.toggle('open');
+        });
+        document.querySelector('.circle2').addEventListener('click', () => {
+            document.querySelector('.vertical2').classList.toggle('open');
+            document.querySelector('.linewrapper2').classList.toggle('open');
+            document.querySelector('.content2').classList.toggle('open');
+        });
+
+        function onClickmenuu(){
+        document.getElementById("menuu").classList.toggle("iconn");
+        document.getElementById("navigate").classList.toggle("change");
+        document.getElementById("bar1").classList.toggle("change-color");
+        document.getElementById("bar3").classList.toggle("change-color");
+
+    }
+    </script>
+</body>
+
+</html>

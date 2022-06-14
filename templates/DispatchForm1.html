@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatch Form1</title>
+    {% load static %}
+
+    <style>
+        * {
+            padding: 0%;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .RecircleLogo {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+
+        .RecircleLogo img {
+            width: 250px;
+        }
+
+        .RegisterVendorForm1 {
+            text-align: center;
+            font-size: 35px;
+            color: #3D3738;
+            margin-top: -10px;
+        }
+
+        .Email {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+
+        }
+
+        #EmailField {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 20px;
+            border: none;
+            border-radius: 9px;
+        }
+
+        .Email p {
+            color: #FF331F;
+        }
+
+        .Email label {
+            display: flex;
+        }
+
+        .Horizontal {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .LeftColumn {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            margin-right: 200px;
+
+        }
+
+        .RightColumn {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+
+        .Horizontal label {
+            margin-top: 30px;
+            font-size: 28px;
+        }
+
+        .SubmitButton {
+            width: 30%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: 30px;
+
+        }
+
+        .SubmitButton a {
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        .SubmitContainer {
+            display: flex;
+            justify-content: center;
+            margin-top: -35px;
+        }
+
+        .MaterialContainer {
+            color: #3D3738;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .MaterialContainer img {
+            width: 100px;
+        }
+
+        .EmptyBox {
+            height: 116px;
+        }
+
+        .Uploaded {
+            color: #56946C;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .MaterialPictures {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .MinPictures {
+            font-size: 16px;
+            font-weight: 100;
+        }
+
+        .Buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+
+        }
+
+        .Empty1 {
+            width: 150px;
+        }
+
+        .SubmitButton {
+            width: 300px
+        }
+
+        .date-picker {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(113, 164, 242, 0.21);
+            cursor: pointer;
+            user-select: none;
+            border-radius: 9px;
+        }
+
+        .date-picker:hover {
+            background-color: rgba(113, 164, 242, 0.21);
+        }
+
+        .date-picker .selected-date {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 20px;
+
+            color: #313131;
+            font-size: 28px;
+        }
+
+        .date-picker .dates {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border: 2px solid black;
+            background-color: white;
+        }
+
+        .date-picker .dates.active {
+            display: block;
+        }
+
+        .date-picker .dates .month {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #EEE;
+        }
+
+        .date-picker .dates .month .arrows {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #313131;
+            font-size: 20px;
+        }
+
+        .date-picker .dates .month .arrows:hover {
+            background-color: #F3F3F3;
+        }
+
+        .date-picker .dates .month .arrows:active {
+            background-color: #00CA85;
+        }
+
+        .date-picker .dates .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            height: 200px;
+            border-radius: 9px;
+        }
+
+        .date-picker .dates .days .day {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #313131;
+        }
+
+        .date-picker .dates .days .day.selected {
+            background-color: #00CA85;
+            color: white;
+        }
+
+        .iconcontainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+
+        }
+
+        .iconcontainer img {
+            width: 40px;
+            margin-right: 15px;
+        }
+
+        .DropdownField {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(113, 164, 242, 0.21);
+            border-radius: 9px;
+            padding: 12px;
+            padding-right: 0px;
+
+        }
+
+        .DropdownField p {
+            color: grey;
+            font-size: 20px;
+
+        }
+
+        .circle {
+            display: block;
+            height: 30px;
+            width: 30px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            background-color: #07004D;
+            padding: 9px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            margin-right: 17px;
+            margin-top: 5px;
+        }
+
+        .circle:hover {
+            cursor: pointer;
+        }
+
+        .linewrapper {
+            transition: 0.3s ease;
+
+        }
+
+        .horizontal,
+        .vertical {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            pointer-events: none;
+        }
+
+        .vertical {
+            position: relative;
+            bottom: 2px;
+            transform: rotate(90deg);
+            transition: 0.3s ease;
+        }
+
+        .vertical.open {
+            transform: rotate(180deg);
+        }
+
+        .linewrapper.open {
+            transform: rotate(180deg);
+        }
+
+        .content {
+            margin-top: 8px;
+            height: 0px;
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 0px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            border-radius: 9px;
+        }
+
+        .contentwrapper {
+            padding: 10px;
+        }
+
+        .contentwrapper p:hover {
+            background-color: rgba(113, 164, 242, 0.16);
+            cursor: pointer;
+
+        }
+
+        .contentwrapper p {
+            padding: 20px;
+            border-radius: 9px;
+        }
+
+        .content.open {
+            height: min-content;
+            border-radius: 9px;
+
+        }
+
+        .RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#navigation{
+    z-index: 500;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+    font-size: 20px;
+    }
+    
+    </style>
+
+</head>
+
+<body>
+    <div class =  "RecircleLogo">
+    
+        <div id="navigation">
+            <div id="menuu" onclick = "onClickmenuu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <ul class="navigate" id="navigate">
+                <li><a href = "{% url 'HomePage' %}">Home</a></li>
+                <li><a href = "{% url 'ProfilePage' %}">My Profile</a></li>     
+                <li><a href = "{% url 'InwardForm1' %}">Log Material</a></li>
+                <li><a href = "{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+                <li><a href = "{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+                <li><a href = "{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+                <li><a href = "{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+                <li><a href = "{% url 'Login' %}">Log Out</a></li>    
+            </ul>
+        </div>
+    
+        <a href = "{% url 'HomePage' %}">
+            <img src = "{% static 'images/RecircleLogo.png' %}">
+          </a>
+          
+        </div>
+    <div class="RegisterVendorForm1">
+        <h1>Dispatch Form</h1>
+    </div>
+    <div class="Horizontal">
+        <div class="LeftColumn">
+            <div class="Email">
+                <label for="Date"> Date<p>*</p> </label>
+                <div class="date-picker">
+                    <div class="iconcontainer">
+                        <div class="selected-date"></div>
+                        <img src="{% static 'images/icon.png' %}">
+                    </div>
+
+                    <div class="dates">
+                        <div class="month">
+                            <div class="arrows prev-mth">&lt;</div>
+                            <div class="mth"></div>
+                            <div class="arrows next-mth">&gt;</div>
+                        </div>
+
+                        <div class="days"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="Email">
+                <label for="City"> City<p>*</p> </label>
+                <input id="EmailField" type="text" name=" City">
+            </div>
+
+            <div class="MaterialContainer">
+                <div class="ImageContainer">
+                    <img src="{% static 'images/Camera.png' %}">
+                </div>
+                <div>
+                    <div class="MaterialPictures">
+                        <p>Material Pictures </p>
+                    </div>
+                    <div class="MinPictures">
+                        <p>Minimum of 2 </p>
+                    </div>
+                </div>
+                <div class="Uploaded">
+                    <p>Uploaded 2 of 2 </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="RightColumn">
+            <div class="Email">
+                <label for="License"> State<p>*</p> </label>
+                <input id="EmailField" type="text" name="License">
+            </div>
+            <div class="Email">
+                <label for="Driver_Name"> Location<p>*</p></label>
+                <input id="EmailField" type="text" name="Driver_Name">
+            </div>
+            <div class="Email">
+                <label>Plastic Type<p>*</p></label>
+                <div class="DropdownField">
+                    <p>Select Option</p>
+                    <button class="circle">
+                        <div class="linewrapper">
+                            <div class="horizontal"></div>
+                            <div class="vertical"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="content">
+                    <div class="contentwrapper">
+                        <p style="color: black;">Flexible Plastic</p>
+                        <p style="color: #000;">Rigid Plastic</p>
+                        <p style="color: #000;">Mixed Plastic</p>
+                        <p style="color: #000;">Multi-Layered Plastic</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="Buttons">
+        <div class="SubmitContainer">
+            <div class="SubmitButton">
+                <a href="{% url 'Outwardchoices' %}">Back</a>
+            </div>
+        </div>
+        <div class="Empty1"></div>
+        <div class="SubmitContainer">
+            <div class="SubmitButton">
+                <a href="{% url 'DispatchForm2' %}">Next</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        const date_picker_element = document.querySelector('.date-picker');
+        const selected_date_element = document.querySelector('.date-picker .selected-date');
+        const dates_element = document.querySelector('.date-picker .dates');
+        const mth_element = document.querySelector('.date-picker .dates .month .mth');
+        const next_mth_element = document.querySelector('.date-picker .dates .month .next-mth');
+        const prev_mth_element = document.querySelector('.date-picker .dates .month .prev-mth');
+        const days_element = document.querySelector('.date-picker .dates .days');
+
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        let date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+
+        let selectedDate = date;
+        let selectedDay = day;
+        let selectedMonth = month;
+        let selectedYear = year;
+
+        mth_element.textContent = months[month] + ' ' + year;
+
+        selected_date_element.textContent = formatDate(date);
+        selected_date_element.dataset.value = selectedDate;
+
+        populateDates();
+
+        // EVENT LISTENERS
+        date_picker_element.addEventListener('click', toggleDatePicker);
+        next_mth_element.addEventListener('click', goToNextMonth);
+        prev_mth_element.addEventListener('click', goToPrevMonth);
+
+        // FUNCTIONS
+        function toggleDatePicker(e) {
+            if (!checkEventPathForClass(e.path, 'dates')) {
+                dates_element.classList.toggle('active');
+            }
+        }
+
+        function goToNextMonth(e) {
+            month++;
+            if (month > 11) {
+                month = 0;
+                year++;
+            }
+            mth_element.textContent = months[month] + ' ' + year;
+            populateDates();
+        }
+
+        function goToPrevMonth(e) {
+            month--;
+            if (month < 0) {
+                month = 11;
+                year--;
+            }
+            mth_element.textContent = months[month] + ' ' + year;
+            populateDates();
+        }
+
+        function populateDates(e) {
+            days_element.innerHTML = '';
+            let amount_days = 31;
+
+            if (month == 1) {
+                amount_days = 28;
+            }
+
+            for (let i = 0; i < amount_days; i++) {
+                const day_element = document.createElement('div');
+                day_element.classList.add('day');
+                day_element.textContent = i + 1;
+
+                if (selectedDay == (i + 1) && selectedYear == year && selectedMonth == month) {
+                    day_element.classList.add('selected');
+                }
+
+                day_element.addEventListener('click', function () {
+                    selectedDate = new Date(year + '-' + (month + 1) + '-' + (i + 1));
+                    selectedDay = (i + 1);
+                    selectedMonth = month;
+                    selectedYear = year;
+
+                    selected_date_element.textContent = formatDate(selectedDate);
+                    selected_date_element.dataset.value = selectedDate;
+
+                    populateDates();
+                });
+
+                days_element.appendChild(day_element);
+            }
+        }
+
+        // HELPER FUNCTIONS
+        function checkEventPathForClass(path, selector) {
+            for (let i = 0; i < path.length; i++) {
+                if (path[i].classList && path[i].classList.contains(selector)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        function formatDate(d) {
+            let day = d.getDate();
+            if (day < 10) {
+                day = '0' + day;
+            }
+
+            let month = d.getMonth() + 1;
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            let year = d.getFullYear();
+
+            return day + ' / ' + month + ' / ' + year;
+        }
+        document.querySelector('.circle').addEventListener('click', () => {
+            document.querySelector('.vertical').classList.toggle('open');
+            document.querySelector('.linewrapper').classList.toggle('open');
+            document.querySelector('.content').classList.toggle('open');
+        });
+
+        function onClickmenuu(){
+        document.getElementById("menuu").classList.toggle("iconn");
+        document.getElementById("navigate").classList.toggle("change");
+        document.getElementById("bar1").classList.toggle("change-color");
+        document.getElementById("bar3").classList.toggle("change-color");
+
+    }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatch Form3</title>
+    {% load static %}
+
+    <style>
+        * {
+            padding: 0%;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .RecircleLogo {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+
+        .RecircleLogo img {
+            width: 250px;
+        }
+
+        .RegisterVendorForm1 {
+            text-align: center;
+            font-size: 35px;
+            color: #3D3738;
+            margin-top: -50px;
+        }
+
+        .Email {
+            display: flex;
+            flex-direction: column;
+            width: 750px;
+
+        }
+
+        #EmailField {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 20px;
+            border: none;
+            border-radius: 9px;
+        }
+
+        .Email p {
+            color: #FF331F;
+        }
+
+        .Email label {
+            display: flex;
+        }
+
+        .Horizontal {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .LeftColumn {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            margin-right: 200px;
+            width: 60%;
+
+        }
+
+        .RightColumn {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+
+        .Horizontal label {
+            margin-top: 30px;
+            font-size: 28px;
+        }
+
+        .SubmitButton {
+            width: 30%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: 40px;
+
+        }
+
+        .SubmitButton a {
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        .SubmitContainer {
+            display: flex;
+            justify-content: center;
+            margin-top: -15px;
+        }
+
+        .MaterialContainer {
+            color: #3D3738;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .MaterialContainer img {
+            width: 100px;
+            margin-right: 40px;
+        }
+
+        .EmptyBox {
+            height: 116px;
+        }
+
+        .Uploaded {
+            color: #56946C;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .MaterialPictures {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .MinPictures {
+            font-size: 16px;
+            font-weight: 100;
+        }
+
+        .EmptyBox {
+            width: 0px;
+        }
+
+        .Container {
+            display: flex;
+        }
+
+        .InformationContainer {
+            margin: auto 0px;
+        }
+
+        .circle {
+            display: block;
+            height: 30px;
+            width: 30px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            background-color: #07004D;
+            padding: 9px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            margin-right: 17px;
+            margin-top: 5px;
+        }
+
+        .circle:hover {
+            cursor: pointer;
+        }
+
+        .linewrapper {
+            transition: 0.3s ease;
+
+        }
+
+        .horizontal,
+        .vertical {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            pointer-events: none;
+        }
+
+        .vertical {
+            position: relative;
+            bottom: 2px;
+            transform: rotate(90deg);
+            transition: 0.3s ease;
+        }
+
+        .vertical.open {
+            transform: rotate(180deg);
+        }
+
+        .linewrapper.open {
+            transform: rotate(180deg);
+        }
+
+        .content {
+            margin-top: 8px;
+            height: 0px;
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 0px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            border-radius: 9px;
+        }
+
+        .contentwrapper {
+            padding: 10px;
+        }
+
+        .contentwrapper p:hover {
+            background-color: rgba(113, 164, 242, 0.16);
+            cursor: pointer;
+
+        }
+
+        .contentwrapper p {
+            padding: 20px;
+            border-radius: 9px;
+        }
+
+        .content.open {
+            height: min-content;
+            border-radius: 9px;
+
+        }
+
+        .DropdownField {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(113, 164, 242, 0.21);
+            border-radius: 9px;
+            padding: 12px;
+            padding-right: 0px;
+
+        }
+
+        .DropdownField p {
+            color: grey;
+            font-size: 20px;
+
+        }
+
+        .CommentField {
+            padding: 50px;
+            border: 2px solid grey;
+            border-radius: 9px;
+        }
+
+        .Comment input {
+            padding: 20px;
+        }
+
+        .content p {
+            color: #3D3738;
+        }
+
+        .Buttons {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .Empty1 {
+            width: 150px;
+        }
+
+        .SubmitButton {
+            width: 300px
+        }
+
+        .RecircleLogo {
+            display: flex;
+            /* justify-content: space-between; */
+            margin-top: 20px;
+            flex-direction: column-reverse;
+
+        }
+
+        .RecircleLogo img {
+            width: 80px;
+            margin-left: 15px;
+        }
+
+        #menuu {
+            width: 35px;
+            height: 30px;
+            margin: 30px 0px 20px 20px;
+            cursor: pointer;
+        }
+
+        .bar {
+            height: 5px;
+            width: 100%;
+            background-color: #07004D;
+            display: block;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            z-index: 100;
+        }
+
+        #bar1 {
+            transform: translateY(-4px);
+
+        }
+
+        #bar3 {
+            transform: translateY(4px);
+        }
+
+        .navigate li a {
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        #navigation {
+            z-index: 500;
+
+        }
+
+        .navigate li a:hover {
+            border: 1px solid #fff;
+            padding: 10px 20px;
+
+        }
+
+        .navigate li {
+            list-style: none;
+            padding: 16px 0px;
+        }
+
+        .navigate {
+            padding: 0;
+            margin: 0 20px;
+            transition: 1s ease;
+            display: none;
+
+        }
+
+        .iconn bar {
+            background-color: #FFF;
+        }
+
+        .iconn #bar1 {
+            transform: translateY(4px) rotate(-45deg);
+        }
+
+        .iconn #bar3 {
+            transform: translateY(-6px) rotate(45deg);
+        }
+
+        .iconn #bar2 {
+            opacity: 0;
+        }
+
+        .change {
+            background-color: #07004D;
+            height: 100vh;
+            margin: 0;
+            position: absolute;
+            font-size: 30px;
+            top: 0;
+            z-index: -100;
+
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .change-color {
+            background-color: white;
+        }
+
+        @media only screen and (max-width:1000px) {
+            .change {
+                width: 40%
+            }
+        }
+
+        @media only screen and (max-width:500px) {
+            .change {
+                width: 100%
+            }
+        }
+
+        .navigate li a {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="RecircleLogo">
+
+        <div id="navigation">
+            <div id="menuu" onclick="onClickmenuu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <ul class="navigate" id="navigate">
+                <li><a href="{% url 'HomePage' %}">Home</a></li>
+                <li><a href="{% url 'ProfilePage' %}">My Profile</a></li>
+                <li><a href="{% url 'InwardForm1' %}">Log Material</a></li>
+                <li><a href="{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+                <li><a href="{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+                <li><a href="{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+                <li><a href="{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+                <li><a href="{% url 'Login' %}">Log Out</a></li>
+            </ul>
+        </div>
+
+        <a href="{% url 'HomePage' %}">
+            <img src="{% static 'images/RecircleLogo.png' %}">
+        </a>
+
+    </div>
+    <div class="RegisterVendorForm1">
+        <h1>Dispatch Form</h1>
+    </div>
+    <div class="Horizontal">
+        <div class="LeftColumn">
+
+            <div class="Email">
+                <label for="Phone"> Customer Name<p>*</p> </label>
+                <input id="EmailField" type="text" name="Phone">
+            </div>
+
+            <div class="Email">
+                <label for="Phone"> Customer Contact No.<p>*</p> </label>
+                <input id="EmailField" type="text" name="Phone">
+            </div>
+
+
+
+
+            <div class="Email Comment">
+                <label for="Phone"> Comments </label>
+                <input id="CommentField" type="text" name="Phone">
+            </div>
+
+
+        </div>
+
+        <div class="RightColumn">
+
+
+            <div class="MaterialContainer">
+                <div class="Container">
+                    <div class="ImageContainer">
+                        <img src="{% static 'images/Camera.png' %}">
+                    </div>
+                    <div class="InformationContainer">
+                        <div class="MaterialPictures">
+                            <p>Vehicle Number Plate Picture* </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="Uploaded">
+                    <p>Uploaded</p>
+                </div>
+            </div>
+
+
+            <div class="Email">
+                <label for="Phone"> Vehcile License No.<p>*</p> </label>
+                <input id="EmailField" type="text" name="Phone">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="Buttons">
+        <div class="SubmitContainer">
+            <div class="SubmitButton">
+                <a href="{% url 'DispatchForm2' %}">Back</a>
+            </div>
+        </div>
+        <div class="Empty1"></div>
+        <div class="SubmitContainer">
+            <div class="SubmitButton">
+                <a href="{% url 'SuccessDispatch' %}">Submit</a>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        document.querySelector('.circle').addEventListener('click', () => {
+            document.querySelector('.vertical').classList.toggle('open');
+            document.querySelector('.linewrapper').classList.toggle('open');
+            document.querySelector('.content').classList.toggle('open');
+        });
+
+        function onClickmenuu() {
+            document.getElementById("menuu").classList.toggle("iconn");
+            document.getElementById("navigate").classList.toggle("change");
+            document.getElementById("bar1").classList.toggle("change-color");
+            document.getElementById("bar3").classList.toggle("change-color");
+
+        }
+    </script>
+</body>
+
+</html>

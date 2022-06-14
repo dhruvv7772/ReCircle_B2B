@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Dispatch</title>
+    {% load static %}
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    h1{
+        font-size: 45px;
+        text-align: center;
+        margin-top: -120px;
+    }
+
+    h2{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    img{
+        margin-top: 20px;
+        width: 250px;
+
+    }
+    
+    .Horizontal{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin: auto;
+        margin-top: 45px;
+    }
+
+    .FieldContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .FieldContainer h3{
+        font-size: 25px;
+    }
+
+    .FieldContainer p{
+        font-size: 22px;
+        margin-top: 8px;
+    }
+
+    .ImageSuccess{
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .TotalQuantity{
+        background-color: #71A4F2;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .TotalQuantity h3{
+        font-size: 25px;
+    }
+
+    .TotalQuantity p{
+        font-size: 22px;
+        margin-top: 8px;
+    }
+
+    .Done{
+            width: 15%;
+            background-color: #07004D;
+            border-radius: 23px;
+            padding: 7px;
+            text-align: center;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .Done a{
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        p1{
+            color: #71A4F2;
+        }
+
+        .RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#navigation{
+    z-index: 500;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+    font-size: 20px;
+    }
+    
+
+    </style>
+</head>
+<body>
+    
+<div class =  "RecircleLogo">
+    
+    <div id="navigation">
+        <div id="menuu" onclick = "onClickmenuu()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+        <ul class="navigate" id="navigate">
+            <li><a href = "{% url 'HomePage' %}">Home</a></li>
+            <li><a href = "{% url 'ProfilePage' %}">My Profile</a></li>     
+            <li><a href = "{% url 'InwardForm1' %}">Log Material</a></li>
+            <li><a href = "{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+            <li><a href = "{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+            <li><a href = "{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+            <li><a href = "{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+            <li><a href = "{% url 'Login' %}">Log Out</a></li>    
+
+        </ul>
+    </div>
+
+    <a href = "{% url 'HomePage' %}">
+        <img src = "{% static 'images/RecircleLogo.png' %}">
+      </a>
+      
+    </div>
+    <h1>Success!</h1>
+    <h2>Material is <p1>ready</p1> to <p1>dispatch</p1>!</h2>
+    <div class = "ImageSuccess">
+        <img src = "{% static 'images/SuccessLogo.png' %}">
+    </div>
+    <p style = "font-weight: bold; font-size: 30px; text-align: center; margin-top: 20px;">Order Placement Details</p>
+    <div class="Horizontal">
+        <div class="FieldContainer">
+            <h3> Vendor Name</h3>
+            <p> Lorem Ipsum Dolor</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3> Quantity</h3>
+            <p>500 tonnes</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3> Date</h3>
+            <p> 05/12/2022</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3>Time</h3>
+            <p> 10:00 AM</p>
+        </div>
+    </div>
+
+    <div class="Horizontal">
+        <div class="FieldContainer">
+            <h3> Plastic Type </h3>
+            <p>Flexible</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3>Vehicle Number</h3>
+            <p>MH007856</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3>Total Amount</h3>
+            <p>Rs.2,00,000</p>
+        </div>
+    </div>
+
+    <div class="TotalQuantity">
+        <div class="Vertical">
+            <h3>Total Quantity</h3>
+            <p>50 metric tonnes</p>
+        </div>
+    </div>
+    <div class = "Done">
+        <a href = "{% url 'HomePage' %}">Done</a>
+    </div>
+    <script>
+        function onClickmenuu(){
+            document.getElementById("menuu").classList.toggle("iconn");
+            document.getElementById("navigate").classList.toggle("change");
+            document.getElementById("bar1").classList.toggle("change-color");
+            document.getElementById("bar3").classList.toggle("change-color");
+    
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .Logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .Logo img{
+            width: 42%;
+        }
+      
+        .Logindetails {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: -50px;
+        }
+
+        .Phone{
+            width: 30%;
+            background-color: rgba(113, 164, 242, 0.21);
+            border-color: rgba(113, 164, 242, 1);
+            border: 2px solid rgba(113, 164, 242, 1);
+            border-radius: 9px;
+            padding: 7px;
+        }
+        .Phone p{
+            color: #3D3738;
+            font-size: 28px;
+        }
+
+        .OTP{
+            width: 30%;
+            margin-top: 30px;
+            background-color: rgba(113, 164, 242, 0.21);
+            border-color: rgba(113, 164, 242, 1);
+            border: 2px solid rgba(113, 164, 242, 1);
+            border-radius: 9px;
+            padding: 7px;
+        }
+        .OTP p{
+            color: #3D3738;
+            font-size: 28px;
+        }
+
+        .LoginButton{
+            width: 30%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: 30px;
+
+
+        }
+        .LoginButton a{
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        .New{
+            font-size: 25px;
+            color: #B3ACAA;
+            margin-top: 55px;
+            
+        }
+
+        .Signup{
+            border: 2px solid #07004D;
+            width: 30%;
+            background-color: white;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: 10px;
+
+
+        }
+        .Signup a{
+            color: #07004D;
+            font-size: 32px;
+            text-decoration: none;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class = "Logo">
+        <img src = "{% static 'images/Logo.png' %}">
+    </div>
+    <div class = "Logindetails">
+        <div class = "Phone">
+            <p>Phone Number</p>
+        </div>
+        <div class = "OTP">
+            <p>One Time Password</p>
+        </div>
+        <div class = "LoginButton">
+            <a href = "{% url 'HomePage' %}">Login</a>
+        </div>
+        <div class = "New">New Here?</div>
+        <div class = "Signup">
+            <a href = "{% url 'SignUp' %}">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

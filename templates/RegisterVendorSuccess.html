@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Vendor Success</title>
+    {% load static %}
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .sharecontainer{
+            display: flex;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .sharecontainer img{
+            width: 50px;
+            margin-right: 12px;
+            
+        }
+
+        .sharecontainer p{
+            color: #71A4F2;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .vertical{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .successcontainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: -25px;
+        }
+        
+        .successcontainer p{
+            margin-bottom: 12px;
+            color: #56946C;
+            font-weight: bold;
+            font-size: 42px;
+        }    
+
+        .successcontainer img{
+            width: 180px;
+
+        }
+
+        .Info{
+            display: flex;
+            justify-content: space-between;  
+            width: 90%;
+            border: 3px solid #71A4F2;
+            border-radius: 22px;
+            padding: 50px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .Info img{
+            width: 300px;
+            height: 300px;
+        }
+
+        
+        .VendorDetails{
+            display: flex;
+            flex-direction: column;
+         
+        }
+
+        .Field{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .VendorDetails h1{
+            color: #71A4F2;
+            font-size: 42px;
+            margin-bottom: 24px;   
+            font-weight: bold;     
+        }
+        .Field img{
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        .Field p{
+            font-size: 20px;
+        }
+
+        .QRContainer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .QRContainer img{
+            width: 300px;
+            height: 300px;
+            margin-bottom: 10px;
+        }
+
+        .QRContainer p{
+            color: #B3ACAA;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .Done{
+            width: 15%;
+            background-color: #07004D;
+            border-radius: 23px;
+            padding: 7px;
+            text-align: center;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .Done a{
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        h2{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        
+    </style>
+
+
+</head>
+<body>
+    <div class="sharecontainer">
+        <img src = "{% static 'images/share.png' %}">
+        <p>Share</p>
+    </div>    
+
+    <div class="vertical">
+        <div class="successcontainer">
+            <p>Success!</p>
+            <img src = "{% static 'images/Success.png' %}">
+        </div>
+
+        <div class="Info">
+            <img src = "{% static 'images/Profile.png' %}">
+            
+            <div class ="VendorDetails">
+                <h1>Lorem Ipsum</h1>
+                <div class="Field">
+                    <img src = "{% static 'images/email.png' %}">
+                    <p>testemail@gmail.com</p>
+                </div>
+
+                <div class="Field">
+                    <img src = "{% static 'images/email.png' %}">
+                    <p>testemail@gmail.com</p>
+                </div>
+
+                <div class="Field">
+                    <img src = "{% static 'images/email.png' %}">
+                    <p>testemail@gmail.com</p>
+                </div>
+
+            </div>
+        <div class = "QRContainer">
+            <img src = "{% static 'images/QR.png' %}">
+            <p>Scan The QR Code to get the Vendor<br>details at any time</p>
+        </div>
+
+        </div>
+    </div>
+    <h2>The Vendor has been Registered!</h2>
+    <div class = "Done">
+        <a href = "{% url 'HomePage' %}">Done</a>
+    </div>
+
+
+</body>
+</html>

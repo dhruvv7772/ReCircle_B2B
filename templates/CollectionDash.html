@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+<style>
+  * {
+  font-family: sans-serif; /* Change your font family */
+}
+
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+.content-table thead tr {
+  background-color: #07004D;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #71A4F2;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #71A4F2;
+}
+
+tbody img{
+
+    width: 80px;
+}
+
+.Dispatch{
+            background-color: #07004D;
+            border-radius: 23px;
+            padding: 10px 0px;
+            text-align: center;
+        }
+
+    .Dispatch a{
+            color: white;
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 55px;
+
+        }
+
+        .SubmitButton{
+            width: 300px;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            
+        }
+
+        .SubmitButton a{
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        .SubmitContainer{
+            display: flex;
+            justify-content: center;
+        }
+
+        .header{
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 60px;
+          align-items: center;
+          margin-top: -100px;
+        }
+
+        .RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+#navigation{
+    z-index: 500;
+    margin-left: -10px;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+font-size: 20px;
+}
+
+
+
+</style>
+</head>
+<body>
+  <div class =  "RecircleLogo">
+    
+    <div id="navigation">
+        <div id="menuu" onclick = "onClickmenuu()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+        <ul class="navigate" id="navigate">
+            <li><a href = "{% url 'HomePage' %}">Home</a></li>
+            <li><a href = "{% url 'ProfilePage' %}">My Profile</a></li>     
+            <li><a href = "{% url 'InwardForm1' %}">Log Material</a></li>
+            <li><a href = "{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+            <li><a href = "{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+            <li><a href = "{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+            <li><a href = "{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+            <li><a href = "{% url 'Login' %}">Log Out</a></li>
+
+
+        </ul>
+    </div>
+
+    <a href = "{% url 'HomePage' %}">
+      <img src = "{% static 'images/RecircleLogo.png' %}">
+    </a>
+  </div>
+  <div class ="header">
+    <h1>Open Purchase Orders</h1>
+    <div class = "SubmitContainer">
+      <div class = "SubmitButton">
+          <a href = "{% url 'CollectionDashDetails' %}">Closed PO's</a>
+      </div>
+  </div>
+  </div> 
+    <table class="content-table">
+        <thead>
+          <tr>
+            <th>Sr No.</th>
+            <th>PO No.</th>
+            <th>Brand Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Plastic Type</th>
+            <th>PO Quantity</th>
+            <th>PO Balance</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Dispatch</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.</td>
+            <td>515151</td>
+            <td>Pepsi</td>
+            <td>Mumbai</td>
+            <td>Maharashtra</td>
+            <td>Multi-Layered</td>
+            <td>900 kgs</td>
+            <td>400 kgs</td>
+            <td>23/02/2021</td>
+            <td>27/03/2021</td>
+            <td> 
+                <div class = "Dispatch">
+                <a href = "{% url 'Outwardchoices' %}">DISPATCH</a>
+               </div>
+            </td>
+          </tr>
+
+          <tr class="active-row">
+            <td>2.</td>
+            <td>616161</td>
+            <td>Coca Cola</td>
+            <td>Chennai</td>
+            <td>Tamil Nadu</td>
+            <td>Flexible</td>
+            <td>800 kgs</td>
+            <td>500 kgs</td>
+            <td>13/11/2021</td>
+            <td>18/12/2021</td>
+            <td> 
+                <div class = "Dispatch">
+                <a href = "{% url 'Outwardchoices' %}">DISPATCH</a>
+               </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>3.</td>
+            <td>818181</td>
+            <td>Coca Cola</td>
+            <td>Bangalore</td>
+            <td>Karnataka</td>
+            <td>Rigid</td>
+            <td>700 kgs</td>
+            <td>200 kgs</td>
+            <td>04/03/2022</td>
+            <td>10/04/2022</td>
+            <td> 
+                <div class = "Dispatch">
+                <a href = "{% url 'Outwardchoices' %}">DISPATCH</a>
+               </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>4.</td>
+            <td>535246</td>
+            <td>Pepsi</td>
+            <td>Gandhinagar</td>
+            <td>Gujarat</td>
+            <td>Flexible</td>
+            <td>850 kgs</td>
+            <td>320 kgs</td>
+            <td>08/05/2021</td>
+            <td>15/06/2021</td>
+            <td> 
+                <div class = "Dispatch">
+                <a href = "{% url 'Outwardchoices' %}">DISPATCH</a>
+               </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>5.</td>
+            <td>573992</td>
+            <td>Pepsi</td>
+            <td>Bhopal</td>
+            <td>Madhya Pradesh</td>
+            <td>Flexible</td>
+            <td>1000 kgs</td>
+            <td>600 kgs</td>
+            <td>27/08/2021</td>
+            <td>30/09/2021</td>
+            <td> 
+                <div class = "Dispatch">
+                <a href = "{% url 'Outwardchoices' %}">DISPATCH</a>
+               </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>6.</td>
+            <td>981232</td>
+            <td>Pepsi</td>
+            <td>Agra</td>
+            <td>Uttar Pradesh</td>
+            <td>Flexible</td>
+            <td>1060 kgs</td>
+            <td>1000 kgs</td>
+            <td>26/07/2021</td>
+            <td>24/08/2021</td>
+            <td> 
+                <div class = "Dispatch">
+                <a href = "{% url 'Outwardchoices' %}">DISPATCH</a>
+               </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>7.</td>
+            <td>989101</td>
+            <td>Coca Cola</td>
+            <td>Hyderabad</td>
+            <td>Andhara Pradesh</td>
+            <td>Flexible</td>
+            <td>566 kgs</td>
+            <td>400 kgs</td>
+            <td>17/04/2022</td>
+            <td>20/05/2022</td>
+            <td> 
+                <div class = "Dispatch">
+                <a href = "{% url 'Outwardchoices' %}">DISPATCH</a>
+               </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+     
+        <div class = "SubmitContainer">
+            <div class = "SubmitButton">
+                <a href = "{% url 'HomePage' %}">Back</a>
+            </div>
+        </div>
+      
+      <script>
+         function onClickmenuu(){
+        document.getElementById("menuu").classList.toggle("iconn");
+        document.getElementById("navigate").classList.toggle("change");
+        document.getElementById("bar1").classList.toggle("change-color");
+        document.getElementById("bar3").classList.toggle("change-color");
+
+
+    }
+      </script>
+      
+
+</body>
+</html>
