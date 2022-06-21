@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+
+        <title>Dispatch Form</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: serif;
+            }
+            .RecircleLogo {
+                display: flex;
+                margin-top: 20px;
+                flex-direction: column-reverse;
+                width: 40px;
+
+            }
+            .RecircleLogo img {
+                width: 80px;
+                margin-left: 15px;
+            }
+            .RegisterVendorForm1 h1 {
+                text-align: center;
+                font-size: 65px;
+                color: #3d3738;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+            .form-group label {
+                font-size: 28px;
+            }
+            .form-group {
+                margin: 40px 60px;
+            }
+            .form-group input {
+                background-color: rgba(113, 164, 242, 0.21);
+                padding: 28px;
+                font-size: 22px;
+                border: none;
+                border-radius: 9px;
+                color: black;
+            }
+            .form-control option {
+                background-color: rgba(113, 164, 242, 0.21);
+                padding: 20px;
+                border: none;
+                color: black;
+                border-radius: 9px;
+            }
+            select.form-control {
+                background-color: rgba(113, 164, 242, 0.21);
+                /* padding: 20px; */
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                color: black;
+                font-size: 22px;
+                border: none;
+                border-radius: 9px;
+            }
+            #menuu {
+                width: 35px;
+                height: 30px;
+                margin: 30px 0px 20px 20px;
+                cursor: pointer;
+            }
+            .bar {
+                height: 5px;
+                width: 100%;
+                background-color: #07004d;
+                display: block;
+                border-radius: 5px;
+                transition: 0.3s ease;
+                z-index: 100;
+            }
+            #bar1 {
+                transform: translateY(-4px);
+            }
+            #bar3 {
+                transform: translateY(4px);
+            }
+            .navigate li a {
+                color: #fff;
+                text-decoration: none;
+            }
+            #navigation {
+                z-index: 500;
+            }
+            .navigate li a:hover {
+                border: 1px solid #fff;
+                padding: 10px 20px;
+            }
+            .navigate li {
+                list-style: none;
+                padding: 16px 0px;
+            }
+            .navigate {
+                padding: 0;
+                margin: 0 20px;
+                transition: 1s ease;
+                display: none;
+            }
+            .iconn bar {
+                background-color: #fff;
+            }
+            .iconn #bar1 {
+                transform: translateY(4px) rotate(-45deg);
+            }
+            .iconn #bar3 {
+                transform: translateY(-6px) rotate(45deg);
+            }
+            .iconn #bar2 {
+                opacity: 0;
+            }
+            .change {
+                background-color: #07004d;
+                height: 100vh;
+                margin: 0;
+                position: absolute;
+                font-size: 30px;
+                top: 0;
+                z-index: -100;
+                width: 20%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .change-color {
+                background-color: white;
+            }
+            @media only screen and (max-width: 1000px) {
+                .change {
+                    width: 40%;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .change {
+                    width: 100%;
+                }
+            }
+            .navigate li a {
+                font-size: 20px;
+            }
+
+            #submit {
+                width: 60%;
+                background-color: #07004d;
+                border-radius: 9px;
+                padding: 7px;
+                text-align: center;
+                font-size: 28px;
+                border: none;
+            }
+            #Back {
+                width: 60%;
+                background-color: #07004d;
+                border-radius: 9px;
+                padding: 7px;
+                text-align: center;
+                font-size: 28px;
+                border: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- header part (hamburger + logo) ignore -->
+        <div class="RecircleLogo">
+            <div id="navigation">
+                <div id="menuu" onclick="onClickmenuu()">
+                    <div id="bar1" class="bar"></div>
+                    <div id="bar2" class="bar"></div>
+                    <div id="bar3" class="bar"></div>
+                </div>
+                <ul class="navigate" id="navigate">
+                    <li><a href="{% url 'HomePage' %}">Home</a></li>
+                    <li><a href="{% url 'ProfilePage' %}">My Profile</a></li>
+                    <li><a href="{% url 'InwardForm1' %}">Log Material</a></li>
+                    <li>
+                        <a href="{% url 'RegistorVendorForm1' %}"
+                            >Dispatch Form</a
+                        >
+                    </li>
+                    <li><a href="{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+                    <li>
+                        <a href="{% url 'Admin_Dashboard' %}"
+                            >Admin Dashboard</a
+                        >
+                    </li>
+                    <li>
+                        <a href="{% url 'CollectionDash' %}"
+                            >Collection Dashboard</a
+                        >
+                    </li>
+                    <li><a href="{% url 'Login' %}">Log Out</a></li>
+                </ul>
+            </div>
+
+            <!-- logo -->
+            <a href="{% url 'HomePage' %}">
+                <img src="{% static 'images/RecircleLogo.png' %}" />
+            </a>
+        </div>
+        <!-- End of header part (hamburger + logo) ignore -->
+
+        <!-- title of the form -->
+        <div class="RegisterVendorForm1">
+            <h1>Dispatch Form</h1>
+        </div>
+        <!-- end of form title -->
+
+        <!-- error messages (ignore) -->
+        <div
+            id="success"
+            class="alert alert-success alert-dismissible fade"
+            role="alert"
+        >
+            <strong>Success!</strong> Your details have been successfully
+            recorded
+            <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+            >
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div
+            id="failure"
+            class="alert alert-danger alert-dismissible fade"
+            role="alert"
+        >
+            <strong>Error!</strong> Your details were not saved due to errors!
+            <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+            >
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <!-- end of error messages -->
+
+        <!-- start of form fields (layout for all the blue boxes in the center of every form) -->
+        <div class="container">
+            <form>
+                <!-- LAYOUT
+                    row 1:  col 1       col 2
+                            ======      ======
+                    row 2:  col 1       col 2
+                            ======      ======
+                    row 3:  col 1       col 2
+                            ======      ======
+                    [
+                        11, 12
+                        21, 22
+                        31, 32
+                    ]
+                 -->
+
+                <!-- row 1 -->
+                <div class="row">
+                    <!-- col 1 (top left) -->
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="VehicleNo">Vehicle Number*</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="VehicleNo"
+                                placeholder="Enter Vehicle Number"
+                            />
+                            <small
+                                id="namevalid"
+                                class="form-text text-muted invalid-feedback"
+                            >
+                            Vehicle Number format ex: "MH 01 A 1234" or "MH 01 AB 1234" 
+                        </small>
+                        </div>
+                    </div>
+                    <!-- end of col 1 -->
+
+                    <!-- col 2 (top right) -->
+                    <div class="col-sm">
+                        <!-- image field (camera icon + title + "Scanned") -->
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <div class="row">
+                                <!-- camera icon -->
+                                <div class="col-sm">
+                                    <img
+                                        src="{% static 'images/Camera.png' %}"
+                                        style="width: 100px"
+                                    />
+                                </div>
+                                <!-- end of camera icon -->
+
+                                <!-- title -->
+                                <div class="col-sm" style="text-align: left">
+                                    <div class="row">
+                                        <p style="font-size: 20px">
+                                            Vehicle Side Pic*
+                                        </p>
+                                    </div>
+                                    <div class="row">
+                                        <p
+                                            style="
+                                                font-size: 16px;
+                                                margin-top: -15px;
+                                            "
+                                        >
+                                            Less than 3 MB
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- end of title -->
+
+                                <!-- "Scanned" -->
+                                <div class="col-sm">
+                                    <p
+                                        style="
+                                            color: #56946c;
+                                            font-weight: bold;
+                                            font-size: 20px;
+                                            text-align: right;
+                                        "
+                                    >
+                                        Scanned
+                                    </p>
+                                </div>
+                                <!-- End of "Scanned" -->
+                            </div>
+                        </div>
+                        <!-- end of image field -->
+                    </div>
+                    <!-- end of col 2 -->
+                </div>
+                <!-- end of row 1 -->
+
+                <!-- row 2 -->
+                <div class="row">
+                    <!-- col 1 (middle left) -->
+                    <div class="col-sm">
+
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <div class="row">
+                                <!-- camera icon -->
+                                <div class="col-sm">
+                                    <img
+                                        src="{% static 'images/Camera.png' %}"
+                                        style="width: 100px"
+                                    />
+                                </div>
+                                <!-- end of camera icon -->
+
+                                <!-- title -->
+                                <div class="col-sm" style="text-align: left">
+                                    <div class="row">
+                                        <p style="font-size: 20px">
+                                            No. Plate Pic*
+                                        </p>
+                                    </div>
+                                    <div class="row">
+                                        <p
+                                            style="
+                                                font-size: 16px;
+                                                margin-top: -15px;
+                                            "
+                                        >
+                                            Less than 3 MB
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- end of title -->
+
+                                <!-- "Scanned" -->
+                                <div class="col-sm">
+                                    <p
+                                        style="
+                                            color: #56946c;
+                                            font-weight: bold;
+                                            font-size: 20px;
+                                            text-align: right;
+                                        "
+                                    >
+                                        Scanned
+                                    </p>
+                                </div>
+                                <!-- End of "Scanned" -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of col 1 -->
+
+                    <!-- col 2 (middle right) -->
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="Weighslip">WeighslipBridge Number*</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="Weighslip"
+                                placeholder="Enter WeighslipBridge Number"
+                            />
+                            <small
+                                id="namevalid"
+                                class="form-text text-muted invalid-feedback"
+                            >
+                                Invalid Weighslip No.! 
+                            </small>
+                        </div>
+                    </div>
+                    <!-- end of col 2 -->
+                </div>
+
+    
+
+                <!-- end of row 2 -->
+
+                <!-- row 3 -->
+                <div class="row">
+                    <!-- col 1 (bottom left) -->
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <div class="row">
+                                <!-- camera icon -->
+                                <div class="col-sm">
+                                    <img
+                                        src="{% static 'images/Camera.png' %}"
+                                        style="width: 100px"
+                                    />
+                                </div>
+                                <!-- end of camera icon -->
+
+                                <!-- title -->
+                                <div class="col-sm" style="text-align: left">
+                                    <div class="row">
+                                        <p style="font-size: 20px">
+                                            Vehicle Back Pic*
+                                        </p>
+                                    </div>
+                                    <div class="row">
+                                        <p
+                                            style="
+                                                font-size: 16px;
+                                                margin-top: -15px;
+                                            "
+                                        >
+                                            Less than 3 MB
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- end of title -->
+
+                                <!-- "Scanned" -->
+                                <div class="col-sm">
+                                    <p
+                                        style="
+                                            color: #56946c;
+                                            font-weight: bold;
+                                            font-size: 20px;
+                                            text-align: right;
+                                        "
+                                    >
+                                        Scanned
+                                    </p>
+                                </div>
+                                <!-- End of "Scanned" -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of col 1 -->
+                
+                    <div class="col-sm">
+                        <!-- image field (camera icon + title + "Scanned") -->
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <div class="row">
+                                <!-- camera icon -->
+                                <div class="col-sm">
+                                    <img
+                                        src="{% static 'images/Camera.png' %}"
+                                        style="width: 100px"
+                                    />
+                                </div>
+                                <!-- end of camera icon -->
+    
+                                <!-- title -->
+                                <div class="col-sm" style="text-align: left">
+                                    <div class="row">
+                                        <p style="font-size: 20px">
+                                            Weigh Slip Pic*
+                                        </p>
+                                    </div>
+                                    <div class="row">
+                                        <p
+                                            style="
+                                                font-size: 16px;
+                                                margin-top: -15px;
+                                            "
+                                        >
+                                            Less than 3 MB
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- end of title -->
+    
+                                <!-- "Scanned" -->
+                                <div class="col-sm">
+                                    <p
+                                        style="
+                                            color: #56946c;
+                                            font-weight: bold;
+                                            font-size: 20px;
+                                            text-align: right;
+                                        "
+                                    >
+                                        Scanned
+                                    </p>
+                                </div>
+                                <!-- End of "Scanned" -->
+                            </div>
+                        </div>
+                        <!-- end of image field -->
+                    </div>
+
+
+                </div>
+                <!-- end of row 3 -->
+
+                <!-- Back and Submit buttons container -->
+                <div class="row" style="margin-top: 60px">
+                    <!-- Back button -->
+                    <div class="col-sm d-flex justify-content-center">
+                        <button id="Back" class="btn btn-primary">Back</button>
+                    </div>
+                    <!-- end of Back button -->
+
+                    <!-- Submit button -->
+                    <div class="col-sm d-flex justify-content-center">
+                        <button id="submit" class="btn btn-primary">
+                            Next
+                        </button>
+                    </div>
+                    <!-- end of Submit button -->
+                </div>
+                <!-- end of Back and Submit buttons container -->
+            </form>
+        </div>
+        <!-- end of form fields -->
+
+        <!-- JS libs -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- our JS part starts here -->
+        <script>
+            // ignore
+            class Validation {
+                constructor(element, regex, isRequired) {
+                    this.element = element;
+                    this.regex = regex;
+                    this.isRequired = isRequired;
+
+                    this.isValid = false;
+                    this.isEmpty = true;
+                    this.validate();
+                }
+
+                validate() {
+                    this.element.addEventListener("blur", () => {
+                        this.isEmpty = this.element.value.length === 0;
+
+                        if (this.isRequired && this.isEmpty) {
+                            this.isValid = false;
+                        } else if (!this.isRequired && this.isEmpty) {
+                            this.isValid = true;
+                        } else {
+                            // validate using regex
+                            let regex = this.regex;
+                            let str = this.element.value;
+
+                            if (regex.test(str)) {
+                                this.element.classList.remove("is-invalid");
+                                this.isValid = true;
+                            } else {
+                                this.element.classList.add("is-invalid");
+                                this.isValid = false;
+                            }
+                        }
+                    });
+                }
+            }
+
+            // ignore these as well
+            $("#failure").hide();
+            $("#success").hide();
+            const failure = document.getElementById("failure");
+            const success = document.getElementById("success");
+
+            // =========================== start here ===========================
+            const formField1 = document.getElementById("Weighslip");
+            const formField2 = document.getElementById("VehicleNo");
+
+            const validations = [
+                new Validation(formField1, /^([0-9]){12}$/, true),
+                new Validation(formField2, /^(([A-Z]{2} [0-9]{2}) [A-Z]{1,2}) [0-9]{4}$/, true),
+            ];
+
+            const nextPageLink = "{% url 'DispatchForm3' %}";
+            const prevPageLink = "{% url 'DispatchForm1' %}";
+            // =========================== end here ===========================
+
+            const submit = document.getElementById("submit");
+            submit.addEventListener("click", (e) => {
+                e.preventDefault();
+                let canSubmitForm = true;
+                validations.forEach((validation) => {
+                    if (validation.isValid == false) {
+                        canSubmitForm = false;
+                    }
+                });
+
+                
+                if (canSubmitForm) {
+                    success.classList.add("show");
+                    $("#failure").hide();
+                    $("#success").show();
+
+                    setTimeout(function () {
+                        window.location = nextPageLink;
+                    });
+                } else {
+                    failure.classList.add("show");
+                    $("#success").hide();
+                    $("#failure").show();
+
+                   
+                }
+            });
+
+            const Back = document.getElementById("Back");
+            Back.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                setTimeout(function () {
+                    window.location = prevPageLink;
+                });
+            });  
+
+            function onClickmenuu(){
+        document.getElementById("menuu").classList.toggle("iconn");
+        document.getElementById("navigate").classList.toggle("change");
+        document.getElementById("bar1").classList.toggle("change-color");
+        document.getElementById("bar3").classList.toggle("change-color");
+
+
+    }
+            </script>
+    </body>
+</html>

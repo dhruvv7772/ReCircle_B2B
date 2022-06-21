@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+{% load static %}
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: serif ;
+        }
+
+        .form-group label {
+            font-size: 28px;
+
+        }
+
+        .form-group{
+            margin: 40px 60px;
+        }
+
+        .form-group input {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 28px;
+            font-size: 22px;
+            border: none;
+            border-radius: 9px;
+            color: black;
+        }
+
+        .form-control option {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 20px;
+            border: none;
+            color: black;
+            border-radius: 9px;
+        }
+
+        select.form-control {
+            background-color: rgba(113, 164, 242, 0.21);
+            /* padding: 20px; */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: black;
+            font-size: 22px;
+            border: none;
+            border-radius: 9px;
+        }
+    
+        .RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#navigation{
+    z-index: 500;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+    font-size: 20px;
+    }
+    .RegisterVendorForm1 h1{
+            text-align: center;
+            font-size: 65px;
+            color: #3D3738;
+            font-weight: bold;
+            margin-bottom: -130px
+        
+        }
+        
+        
+    #submit{
+           width: 60%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+            border: none;
+    }
+    #Back{
+            width: 60%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+            border: none;
+    }
+
+
+    </style>
+    
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> Welcome to Dragon travels</title>
+</head>
+
+<body>
+    <div class =  "RecircleLogo">
+    
+        <div id="navigation">
+            <div id="menuu" onclick = "onClickmenuu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <ul class="navigate" id="navigate">
+                <li><a href = "{% url 'HomePage' %}">Home</a></li>
+                <li><a href = "{% url 'ProfilePage' %}">My Profile</a></li>     
+                <li><a href = "{% url 'InwardForm1' %}">Log Material</a></li>
+                <li><a href = "{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+                <li><a href = "{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+                <li><a href = "{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+                <li><a href = "{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+                <li><a href = "{% url 'Login' %}">Log Out</a></li>        
+    
+            </ul>
+        </div>
+    
+        <a href = "{% url 'HomePage' %}">
+            <img src = "{% static 'images/RecircleLogo.png' %}">
+          </a>
+          
+        </div>
+
+        <div class = "RegisterVendorForm1">
+            <h1>Register Vendor Form</h1>
+        </div>
+
+    <div id="success" class="alert alert-success alert-dismissible fade" role="alert">
+        <strong>Success!</strong> Your travel request has been successfully submitted
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div id="failure" class="alert alert-danger alert-dismissible fade" role="alert">
+        <strong>Error!</strong> Your travel request has not been sent due to errors
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="container">
+
+        <form>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="address">Date*</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter State">
+                        <small id="validUser" class="form-text text-muted invalid-feedback">
+                            Choose Location
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="col-sm" style="width: 10px;">
+
+                </div> -->
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="address">State*</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter State">
+                        <small id="validUser" class="form-text text-muted invalid-feedback">
+                            Choose Location
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="city">City*</label>
+                        <input type="text" class="form-control" id="city" placeholder="Enter your City">
+                        <small id="validCity" class="form-text text-muted invalid-feedback">
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="col-sm" style="width: 10px;">
+
+                </div> -->
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="address">Location*</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter Location">
+                        <small id="address" class="form-text text-muted invalid-feedback">
+                            Choose Location
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row" >
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <div class="row">
+                            <div class="col-sm"><img src="{% static 'images/Camera.png' %}" style="width: 100px;"> </div>
+                            <div class="col-sm" style="text-align: left; ">
+                                <div class="row"><p style="font-size: 24px;">Vendor Photo*</p></div>
+                                <div class="row"><p style="font-size: 16px; margin-top: -15px;">Less than 3 MB</p></div>
+                            </div>
+                            <div class="col-sm">
+                                <p style="color: #56946C; font-weight: bold; font-size: 20px; text-align: right;">Scanned</p>
+                            </div>
+                        </div>
+                        
+                        <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                            Your email must be a valid email
+                        </small>
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="CustomerType">Material Type *</label>
+                        <select class="form-control" id="CustomerType">
+                            <option>Rigid Plastic</option>
+                            <option>Flexible Plastic</option>
+                            <option>Mixed Plastic</option>
+                            <option>Multi-Layered Plastic</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+         
+            <div class="row" style="margin-top: 60px;">
+                <div class="col-sm d-flex justify-content-center" ><button id="Back" class="btn btn-primary " >Back</button>
+                </div>
+                <div class="col-sm d-flex justify-content-center"><button id="submit" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+
+const date_picker_element = document.querySelector('.date-picker');
+        const selected_date_element = document.querySelector('.date-picker .selected-date');
+        const dates_element = document.querySelector('.date-picker .dates');
+        const mth_element = document.querySelector('.date-picker .dates .month .mth');
+        const next_mth_element = document.querySelector('.date-picker .dates .month .next-mth');
+        const prev_mth_element = document.querySelector('.date-picker .dates .month .prev-mth');
+        const days_element = document.querySelector('.date-picker .dates .days');
+
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        let date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+
+        let selectedDate = date;
+        let selectedDay = day;
+        let selectedMonth = month;
+        let selectedYear = year;
+
+        mth_element.textContent = months[month] + ' ' + year;
+
+        selected_date_element.textContent = formatDate(date);
+        selected_date_element.dataset.value = selectedDate;
+
+        populateDates();
+
+        // EVENT LISTENERS
+        date_picker_element.addEventListener('click', toggleDatePicker);
+        next_mth_element.addEventListener('click', goToNextMonth);
+        prev_mth_element.addEventListener('click', goToPrevMonth);
+
+        // FUNCTIONS
+        function toggleDatePicker(e) {
+            if (!checkEventPathForClass(e.path, 'dates')) {
+                dates_element.classList.toggle('active');
+            }
+        }
+
+        function goToNextMonth(e) {
+            month++;
+            if (month > 11) {
+                month = 0;
+                year++;
+            }
+            mth_element.textContent = months[month] + ' ' + year;
+            populateDates();
+        }
+
+        function goToPrevMonth(e) {
+            month--;
+            if (month < 0) {
+                month = 11;
+                year--;
+            }
+            mth_element.textContent = months[month] + ' ' + year;
+            populateDates();
+        }
+
+        function populateDates(e) {
+            days_element.innerHTML = '';
+            let amount_days = 31;
+
+            if (month == 1) {
+                amount_days = 28;
+            }
+
+            for (let i = 0; i < amount_days; i++) {
+                const day_element = document.createElement('div');
+                day_element.classList.add('day');
+                day_element.textContent = i + 1;
+
+                if (selectedDay == (i + 1) && selectedYear == year && selectedMonth == month) {
+                    day_element.classList.add('selected');
+                }
+
+                day_element.addEventListener('click', function () {
+                    selectedDate = new Date(year + '-' + (month + 1) + '-' + (i + 1));
+                    selectedDay = (i + 1);
+                    selectedMonth = month;
+                    selectedYear = year;
+
+                    selected_date_element.textContent = formatDate(selectedDate);
+                    selected_date_element.dataset.value = selectedDate;
+
+                    populateDates();
+                });
+
+                days_element.appendChild(day_element);
+            }
+        }
+
+        // HELPER FUNCTIONS
+        function checkEventPathForClass(path, selector) {
+            for (let i = 0; i < path.length; i++) {
+                if (path[i].classList && path[i].classList.contains(selector)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        function formatDate(d) {
+            let day = d.getDate();
+            if (day < 10) {
+                day = '0' + day;
+            }
+
+            let month = d.getMonth() + 1;
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            let year = d.getFullYear();
+
+            return day + ' / ' + month + ' / ' + year;
+        }
+        document.querySelector('.circle').addEventListener('click', () => {
+            document.querySelector('.vertical').classList.toggle('open');
+            document.querySelector('.linewrapper').classList.toggle('open');
+            document.querySelector('.content').classList.toggle('open');
+        });
+
+        function onClickmenuu(){
+        document.getElementById("menuu").classList.toggle("iconn");
+        document.getElementById("navigate").classList.toggle("change");
+        document.getElementById("bar1").classList.toggle("change-color");
+        document.getElementById("bar3").classList.toggle("change-color");
+
+    }
+
+
+        console.log("This is project 4");
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        let validEmail = false;
+        let validUser = false;
+        $('#failure').hide();
+        $('#success').hide();
+        const city = document.getElementById('city');
+
+
+        // console.log(name, email, phone);
+        name.addEventListener('blur', () => {
+            console.log("name is blurred");
+            // Validate name here
+            let regex = /^[a-zA-Z]([0-9a-zA-Z]){2,255}$/;
+            let str = name.value;
+            console.log(regex, str);
+            if (regex.test(str)) {
+                console.log('Your name is valid');
+                name.classList.remove('is-invalid');
+                validUser = true;
+            }
+            else {
+                console.log('Your name is not valid');
+                name.classList.add('is-invalid');
+                validUser = false;
+
+            }
+        })
+
+        city.addEventListener('blur', () => {
+            console.log("name is blurred");
+            // Validate name here
+            let regex = /^[a-zA-Z]([0-9a-zA-Z]){2,255}$/;
+            let str = city.value;
+            console.log(regex, str);
+            if (regex.test(str)) {
+                console.log('Your City name is valid');
+                city.classList.remove('is-invalid');
+                validCity = true;
+            }
+            else {
+                console.log('Your City name is not valid');
+                city.classList.add('is-invalid');
+                validCity = false;
+
+            }
+        })
+
+        email.addEventListener('blur', ()=>{
+    console.log("email is blurred");
+    // Validate email here
+    let regex = /^([\-\.0-9a-zA-Z]+)@([\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    let str = email.value;
+    console.log(regex, str);
+    if(regex.test(str)){
+        console.log('Your email is valid');
+        email.classList.remove('is-invalid');
+        validEmail = true;
+    }
+    else{
+        console.log('Your email is not valid');
+        email.classList.add('is-invalid');
+        validEmail = false;
+    }
+})
+
+
+        let submit = document.getElementById('submit');
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            console.log('You clicked on submit');
+            console.log(validUser, validEmail);
+
+            // Submit your form here
+            if ((validUser || name.value.length === 0) && validEmail) {
+                let failure = document.getElementById('failure');
+
+                console.log('Phone, email and user are valid. Submitting the form');
+                let success = document.getElementById('success');
+                success.classList.add('show');
+                // failure.classList.remove('show');
+                // $('#failure').alert('close');
+                $('#failure').hide();
+                $('#success').show();
+                setTimeout(function() {window.location = "{% url 'RegisterVendorSuccess' %}" });
+
+            }
+            else {
+
+                console.log('One of Phone, email or user are not valid. Hence not submitting the form. Please correct the errors and try again');
+                let failure = document.getElementById('failure');
+                failure.classList.add('show');
+                // success.classList.remove('show');
+                // $('#success').alert('hide');
+                $('#success').hide();
+                $('#failure').show();
+            }
+
+        })
+        let Back = document.getElementById('Back');
+            Back.addEventListener('click', (e) => {
+            e.preventDefault();
+            setTimeout(function() {window.location = "{% url 'InwardChoices' %}" });
+
+            })
+    </script>
+</body>
+
+</html>

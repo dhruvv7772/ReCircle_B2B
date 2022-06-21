@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: serif ;
+        }
+
+        
+
+        .form-group label {
+            font-size: 28px;
+
+        }
+
+        .form-group{
+            width: 450px;
+
+        }
+
+        .form-group input {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 30px;
+            border: none;
+            width: 100%;
+            border-radius: 9px;
+            color: black;
+        }
+
+        .form-control option {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 20px;
+            border: none;
+            color: black;
+            border-radius: 9px;
+        }
+
+        select.form-control {
+            background-color: rgba(113, 164, 242, 0.21);
+            /* padding: 20px; */
+            color: black;
+            border: none;
+            border-radius: 9px;
+        }
+    
+        .RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#navigation{
+    z-index: 500;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+    font-size: 20px;
+    }
+    .RegisterVendorForm1 h1{
+            text-align: center;
+            font-size: 65px;
+            color: #3D3738;
+            font-weight: bold;
+            margin-bottom: 30px
+        
+        }
+        
+        
+    #submit{
+           width: 50%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+            border: none;
+    }
+    #Login{
+            width: 450px;
+            background-color: white;
+            color: #07004D;
+            border: 2px solid #07004D ;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+    }
+
+    #Signup{
+            width: 450px;
+            background-color: #07004D;
+
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 30px;
+            font-size: 28px;
+    }
+
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .Logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .Logo img{
+            width: 42%;
+        }
+      
+        .Logindetails {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: -50px;
+        }
+
+        .Phone{
+            display: flex;
+            flex: 1;
+            width: 30%;
+            flex-direction: column;
+        }
+        .Phone label{
+            color: #3D3738;
+            font-size: 28px;
+        }
+
+        .Phone input{
+             /* width: 30%; */
+            background-color: rgba(113, 164, 242, 0.21);
+            border-color: rgba(113, 164, 242, 1);
+            border: 2px solid rgba(113, 164, 242, 1);
+            border-radius: 9px;
+            padding: 7px;
+            font-size: 28px;
+        }
+
+        .OTP{
+            display: flex;
+            flex: 1;
+            width: 30%;
+            margin-top: 20px ;
+            flex-direction: column;
+        }
+        .OTP label{
+            color: #3D3738;
+            font-size: 28px;
+        }
+
+        .OTP input{
+             /* width: 30%; */
+            background-color: rgba(113, 164, 242, 0.21);
+            border-color: rgba(113, 164, 242, 1);
+            border: 2px solid rgba(113, 164, 242, 1);
+            border-radius: 9px;
+            padding: 7px;
+            font-size: 28px;
+        }
+
+        .LoginButton{
+            width: 30%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: 30px;
+
+
+        }
+
+        .LoginButton input{
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+        }
+
+        .LoginButton a{
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        .New{
+            font-size: 25px;
+            color: #B3ACAA;
+            margin-top: 55px;
+            
+        }
+
+        .Signup{
+            border: 2px solid #07004D;
+            width: 30%;
+            background-color: white;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            margin-top: 10px;
+
+
+        }
+        .Signup a{
+            color: #07004D;
+            font-size: 32px;
+            text-decoration: none;
+        }
+
+
+    </style>
+    
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Sign Up Page</title>
+</head>
+
+<body>
+    <div class = "Logo">
+        <img src = "{% static 'images/Logo.png' %}">
+    </div>
+    
+    
+    <div id="success" class="alert alert-success alert-dismissible fade" role="alert" style="position: absolute; top: 0">
+        <strong>Success!</strong> You have Successfully Signed In!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div id="failure" class="alert alert-danger alert-dismissible fade" role="alert" style="position: absolute; top: 0">
+        <strong>Error!</strong> Sign in Failed!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center" style="margin-top: -100px;">
+
+        <form style="flex: 1">
+            <div class="row d-flex justify-content-center align-items-center">
+                
+                <div class="form-group">
+                    <label for="PhoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter your Phone Number">
+                    <small id="namevalid" class="form-text text-muted invalid-feedback">
+                        Phone Number must be 10 digits long!
+                    </small>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center align-items-center" style= "margin-bottom: 40px;">
+                <div class="form-group">
+                    <label for="OTP">OTP*</label>
+                    <input type="text" class="form-control" id="OTP" placeholder="OTP">
+                    <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                        Your OTP must be 4 digits long!
+                    </small>
+                </div>
+            </div>
+
+           <div class="row d-flex justify-content-center align-items-center">
+            <button id="Signup" class="btn btn-primary " >Sign Up</button>
+           </div>
+           <div class="row d-flex justify-content-center align-items-center">
+            <button id="Login" class="btn btn-primary " >Login</button>
+           </div>
+            
+        </form>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        console.log("This is project 4");
+        // const name = document.getElementById('PhoneNumber');
+        const email = document.getElementById('OTP');
+        const phone = document.getElementById('PhoneNumber');
+        let validEmail = false;
+        let validPhone = false;
+        // let validUser = false;
+        $('#failure').hide();
+        $('#success').hide();
+
+        // console.log(name, email, phone);
+        // name.addEventListener('blur', () => {
+        //     console.log("name is blurred");
+        //     // Validate name here
+        //     let regex = /^[a-zA-Z]([0-9a-zA-Z]){2,255}$/;
+        //     let str = name.value;
+        //     console.log(regex, str);
+        //     if (regex.test(str)) {
+        //         console.log('Your name is valid');
+        //         name.classList.remove('is-invalid');
+        //         validUser = true;
+        //     }
+        //     else {
+        //         console.log('Your name is not valid');
+        //         name.classList.add('is-invalid');
+        //         validUser = false;
+
+        //     }
+        // })
+
+        email.addEventListener('blur', () => {
+            console.log("email is blurred");
+            // Validate email here
+            // let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+            let regex = /^([0-9]){4}$/;
+            let str = email.value;
+            console.log(regex, str);
+            if (regex.test(str)) {
+                console.log('Your email is valid');
+                email.classList.remove('is-invalid');
+                validEmail = true;
+            }
+            else {
+                console.log('Your email is not valid');
+                email.classList.add('is-invalid');
+                validEmail = false;
+            }
+        })
+
+        phone.addEventListener('blur', () => {
+            console.log("phone is blurred");
+            // Validate phone here
+            let regex = /^([0-9]){10}$/;
+            let str = phone.value;
+            console.log(regex, str);
+            if (regex.test(str)) {
+                console.log('Your phone is valid');
+                phone.classList.remove('is-invalid');
+                validPhone = true;
+            }
+            else {
+                console.log('Your phone is not valid');
+                phone.classList.add('is-invalid');
+                validPhone = false;
+
+            }
+        })
+
+        let submit = document.getElementById('Signup');
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            console.log('You clicked on submit');
+            console.log(validEmail, validPhone);
+
+            // Submit your form here
+            if (validEmail && validPhone) {
+                let failure = document.getElementById('failure');
+
+                console.log('Phone, email and user are valid. Submitting the form');
+                let success = document.getElementById('success');
+                success.classList.add('show');
+                // failure.classList.remove('show');
+                // $('#failure').alert('close');
+                $('#failure').hide();
+                $('#success').show();
+                setTimeout(function() {window.location = "{% url 'Login2' %}" });
+
+            }
+            else {
+                console.log('One of Phone, email or user are not valid. Hence not submitting the form. Please correct the errors and try again');
+                let failure = document.getElementById('failure');
+                failure.classList.add('show');
+                // success.classList.remove('show');
+                // $('#success').alert('hide');
+                $('#success').hide();
+                $('#failure').show();
+            }
+        })
+        let Signup = document.getElementById('Login');
+            Signup.addEventListener('click', (e) => {
+            e.preventDefault();
+            setTimeout(function() {window.location = "{% url 'Login2' %}" });
+
+            })
+
+    </script>
+</body>
+
+</html>

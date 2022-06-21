@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+{% load static %}
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: serif ;
+        }
+
+        .form-group label {
+            font-size: 28px;
+
+        }
+
+        .form-group{
+            margin: 40px 60px;
+        }
+
+        .form-group input {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 28px;
+            font-size: 22px;
+            border: none;
+            border-radius: 9px;
+            color: black;
+        }
+
+        .form-control option {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 20px;
+            border: none;
+            color: black;
+            border-radius: 9px;
+        }
+
+        select.form-control {
+            background-color: rgba(113, 164, 242, 0.21);
+            /* padding: 20px; */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: black;
+            font-size: 22px;
+            border: none;
+            border-radius: 9px;
+        }
+    
+        .RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+    width: 40px
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#navigation{
+    z-index: 500;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+    font-size: 20px;
+    }
+    .RegisterVendorForm1 h1{
+            text-align: center;
+            font-size: 65px;
+            color: #3D3738;
+            font-weight: bold;
+            margin-bottom: 20px;
+        
+        }
+        
+        
+    #submit{
+           width: 60%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+            border: none;
+    }
+    #Back{
+            width: 60%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+            border: none;
+    }
+
+
+    </style>
+    
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> Dispatch Form</title>
+</head>
+
+<body>
+    <div class =  "RecircleLogo">
+    
+        <div id="navigation">
+            <div id="menuu" onclick = "onClickmenuu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <ul class="navigate" id="navigate">
+                <li><a href = "{% url 'HomePage' %}">Home</a></li>
+                <li><a href = "{% url 'ProfilePage' %}">My Profile</a></li>     
+                <li><a href = "{% url 'InwardForm1' %}">Log Material</a></li>
+                <li><a href = "{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+                <li><a href = "{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+                <li><a href = "{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+                <li><a href = "{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+                <li><a href = "{% url 'Login' %}">Log Out</a></li>        
+    
+            </ul>
+        </div>
+    
+        <a href = "{% url 'HomePage' %}">
+            <img src = "{% static 'images/RecircleLogo.png' %}">
+          </a>
+          
+        </div>
+
+        <div class = "RegisterVendorForm1">
+            <h1>Dispatch Form</h1>
+        </div>
+
+    <div id="success" class="alert alert-success alert-dismissible fade" role="alert">
+        <strong>Success!</strong> Your travel request has been successfully submitted
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div id="failure" class="alert alert-danger alert-dismissible fade" role="alert">
+        <strong>Error!</strong> Your travel request has not been sent due to errors
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="container">
+
+        <form>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="Date">Date*</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="Date"
+                            placeholder="Enter Today's Date"
+                        />
+                        <small
+                            id="namevalid"
+                            class="form-text text-muted invalid-feedback"
+                        >
+                            Enter Date in the Format: DD/MM/YYYY!
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="col-sm" style="width: 10px;">
+
+                </div> -->
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="address">State*</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="address"
+                            placeholder="Enter Your Name"
+                        />
+                        <small
+                            id="namevalid"
+                            class="form-text text-muted invalid-feedback"
+                        >
+                            Enter Valid State Name!
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="city">City*</label>
+                        <input type="text" class="form-control" id="city" placeholder="Enter your City">
+                        <small id="validCity" class="form-text text-muted invalid-feedback">
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="col-sm" style="width: 10px;">
+
+                </div> -->
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="Location">Location*</label>
+                        <input type="text" class="form-control" id="Location" placeholder="Enter Location">
+                        <small id="Location" class="form-text text-muted invalid-feedback">
+                            Enter Valid Location
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row" >
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <div class="row">
+                            <div class="col-sm"><img src="{% static 'images/Camera.png' %}" style="width: 100px;"> </div>
+                            <div class="col-sm" style="text-align: left; ">
+                                <div class="row"><p style="font-size: 20px;">Material Photo*</p></div>
+                                <div class="row"><p style="font-size: 16px; margin-top: -15px;">Less than 3 MB</p></div>
+                            </div>
+                            <div class="col-sm">
+                                <p style="color: #56946C; font-weight: bold; font-size: 20px; text-align: right;">Scanned</p>
+                            </div>
+                        </div>
+                        
+                        <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                            Your email must be a valid email
+                        </small>
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="CustomerType">Material Type *</label>
+                        <select class="form-control" id="CustomerType">
+                            <option>Rigid Plastic</option>
+                            <option>Flexible Plastic</option>
+                            <option>Mixed Plastic</option>
+                            <option>Multi-Layered Plastic</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+         
+            <div class="row" style="margin-top: 60px;">
+                <div class="col-sm d-flex justify-content-center" ><button id="Back" class="btn btn-primary " >Back</button>
+                </div>
+                <div class="col-sm d-flex justify-content-center"><button id="submit" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    
+    <script>
+
+// ignore
+class Validation {
+                constructor(element, regex, isRequired) {
+                    this.element = element;
+                    this.regex = regex;
+                    this.isRequired = isRequired;
+
+                    this.isValid = false;
+                    this.isEmpty = true;
+                    this.validate();
+                }
+
+                validate() {
+                    this.element.addEventListener("blur", () => {
+                        this.isEmpty = this.element.value.length === 0;
+
+                        if (this.isRequired && this.isEmpty) {
+                            this.isValid = false;
+                        } else if (!this.isRequired && this.isEmpty) {
+                            this.isValid = true;
+                        } else {
+                            // validate using regex
+                            let regex = this.regex;
+                            let str = this.element.value;
+
+                            if (regex.test(str)) {
+                                this.element.classList.remove("is-invalid");
+                                this.isValid = true;
+                            } else {
+                                this.element.classList.add("is-invalid");
+                                this.isValid = false;
+                            }
+                        }
+                    });
+                }
+            }
+
+            // ignore these as well
+            $("#failure").hide();
+            $("#success").hide();
+            const failure = document.getElementById("failure");
+            const success = document.getElementById("success");
+
+            // =========================== start here ===========================
+            const formField1 = document.getElementById("city");
+            const formField2 = document.getElementById("address");
+            const formField3 = document.getElementById("Date");
+            const formField4 = document.getElementById("Location");
+
+
+
+            const validations = [
+                new Validation(formField1, /^([a-zA-Z ]){2,255}$/, true),
+                new Validation(formField2, /^([a-zA-Z ]){2,255}$/, true),
+                new Validation(formField3, /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/, true),
+                new Validation(formField4, /^([a-zA-Z 0-9\/\-\,]){2,255}$/, true),
+
+            ];
+
+            const nextPageLink = "{% url 'DispatchForm2' %}";
+            const prevPageLink = "{% url 'CollectionDash' %}";
+            // =========================== end here ===========================
+
+            const submit = document.getElementById("submit");
+            submit.addEventListener("click", (e) => {
+                e.preventDefault();
+                let canSubmitForm = true;
+                validations.forEach((validation) => {
+                    if (validation.isValid == false) {
+                        canSubmitForm = false;
+                    }
+                });
+
+                
+                if (canSubmitForm) {
+                    success.classList.add("show");
+                    $("#failure").hide();
+                    $("#success").show();
+
+                    setTimeout(function () {
+                        window.location = nextPageLink;
+                    });
+                } else {
+                    failure.classList.add("show");
+                    $("#success").hide();
+                    $("#failure").show();
+
+                   
+                }
+            });
+
+            const Back = document.getElementById("Back");
+            Back.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                setTimeout(function () {
+                    window.location = prevPageLink;
+                });
+            });  
+
+            function onClickmenuu(){
+        document.getElementById("menuu").classList.toggle("iconn");
+        document.getElementById("navigate").classList.toggle("change");
+        document.getElementById("bar1").classList.toggle("change-color");
+        document.getElementById("bar3").classList.toggle("change-color");
+
+
+    }
+    </script>
+</body>
+
+</html>

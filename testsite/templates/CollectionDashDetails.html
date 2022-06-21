@@ -1,0 +1,160 @@
+{% load static%}
+<style> 
+.SubmitButton{
+  width: 30%;
+  background-color: #07004D;
+  border-radius: 9px;
+  padding: 7px;
+  text-align: center;
+  margin-top: -40px;
+  
+}
+
+.SubmitButton a{
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+.SubmitContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+</style>
+
+
+<table id="example" class="display" style="width:100%">
+  <thead>
+    <tr>
+      <th></th>
+      <th>PO Number</th>
+      <th>Brand Name </th>
+      <th>City</th>
+      <th>State</th>
+      <th>Target</th>
+      <th>Achieved</th>
+      <th>Balance</th>
+      <th>Issue Date</th>
+      <th>Deadline</th>
+
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th>PO Number</th>
+      <th>Brand Name </th>
+      <th>City</th>
+      <th>State</th>
+      <th>Target</th>
+      <th>Achieved</th>
+      <th>Balance</th>
+      <th>Issue Date</th>
+      <th>Deadline</th>
+
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+</main>
+<footer class="py-4 bg-light mt-auto">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center justify-content-between small">
+      <div class="text-muted">Copyright &copy; Your Website 2022</div>
+      <div>
+        <a href="#">Privacy Policy</a>
+        &middot;
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class = "SubmitContainer">
+  <div class = "SubmitButton">
+      <a href = "{% url 'CollectionDash' %}">Back</a>
+  </div>
+  
+</div>
+
+
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js "></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'chart-area-demo.js' %}"></script>
+<script src="{% static 'chart-bar-demo.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="{% static 'datatables-simple-demo.js' %}"></script>
+<script> /* Formatting function for row details - modify as you need */
+  function format(d) {
+    // `d` is the original data object for the row
+    return (
+      '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+      '<tr>' +
+      '<td>Full name:</td>' +
+      '<td>' +
+      d.name +
+      '</td>' +
+      '</tr>' +
+      '<tr>' +
+      '<td>Extension number:</td>' +
+      '<td>' +
+      d.extn +
+      '</td>' +
+      '</tr>' +
+      '<tr>' +
+      '<td>Extra info:</td>' +
+      '<td>And any further details here (images etc)...</td>' +
+      '</tr>' +
+      '</table>'
+    );
+  }
+
+  $(document).ready(function () {
+    var table = $('#example').DataTable({
+      ajax: 'ajax/objects.txt',
+      columns: [
+        {
+          className: 'dt-control',
+          orderable: false,
+          data: null,
+          defaultContent: '',
+        },
+        { data: 'PO Number' },
+        { data: 'Brand Name' },
+        { data: 'City' },
+        { data: 'State' },
+        { data: 'Target' },
+        { data: 'Achieved' },
+        { data: 'Balance' },
+        { data: 'Issue Date' },
+        { data: 'Deadline' }
+      ],
+      order: [[1, 'asc']],
+    });
+
+    // Add event listener for opening and closing details
+    $('#example tbody').on('click', 'td.dt-control', function () {
+      var tr = $(this).closest('tr');
+      var row = table.row(tr);
+
+      if (row.child.isShown()) {
+        // This row is already open - close it
+        row.child.hide();
+        tr.removeClass('shown');
+      } else {
+        // Open this row
+        row.child(format(row.data())).show();
+        tr.addClass('shown');
+      }
+    });
+  }); </script>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Outward</title>
+    {% load static %}
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    h1{
+        font-size: 45px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    h2{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    img{
+        margin-top: 20px;
+        width: 250px;
+
+    }
+    
+    .Horizontal{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin: auto;
+        margin-top: 45px;
+
+
+    }
+
+    .FieldContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .FieldContainer h3{
+        font-size: 25px;
+    }
+
+    .FieldContainer p{
+        font-size: 22px;
+        margin-top: 8px;
+    }
+
+    .ImageSuccess{
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .TotalQuantity{
+        background-color: #71A4F2;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .TotalQuantity h3{
+        font-size: 25px;
+    }
+
+    .TotalQuantity p{
+        font-size: 22px;
+        margin-top: 8px;
+    }
+
+    .Done{
+            width: 15%;
+            background-color: #07004D;
+            border-radius: 23px;
+            padding: 7px;
+            text-align: center;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .Done a{
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+        }
+
+        p1{
+            color: #71A4F2;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Success!</h1>
+    <h2>We have <p1>processed</p1> and <p1>placed</p1> your order!</h2>
+    <div class = "ImageSuccess">
+        <img src="SuccessLogo.png">
+    </div>
+    <p style = "font-weight: bold; font-size: 30px; text-align: center; margin-top: 20px;">Order Placement Details</p>
+    <div class="Horizontal">
+        <div class="FieldContainer">
+            <h3> Vendor Name</h3>
+            <p> Lorem Ipsum Dolor</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3> Quantity</h3>
+            <p>500 tonnes</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3> Date</h3>
+            <p> 05/12/2022</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3>Time</h3>
+            <p> 10:00 AM</p>
+        </div>
+    </div>
+
+    <div class="Horizontal">
+        <div class="FieldContainer">
+            <h3> Plastic Type </h3>
+            <p>Flexible</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3>Vehicle Number</h3>
+            <p>MH007856</p>
+        </div>
+
+        <div class="FieldContainer">
+            <h3>Total Amount</h3>
+            <p>Rs.2,00,000</p>
+        </div>
+    </div>
+
+    <div class="TotalQuantity">
+        <div class="Vertical">
+            <h3>Total Quantity</h3>
+            <p>50 metric tonnes</p>
+        </div>
+    </div>
+    <div class = "Done">
+        <a href = "{% url 'HomePage' %}">Done</a>
+    </div>
+
+</body>
+</html>

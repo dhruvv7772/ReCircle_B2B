@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+{% load static %}
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: serif ;
+        }
+
+        
+
+        .form-group label {
+            font-size: 28px;
+
+        }
+
+        .form-group{
+            margin: 40px 60px;
+        }
+
+        .form-group input {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 28px;
+            font-size: 22px;
+            border: none;
+            border-radius: 9px;
+            color: black;
+        }
+
+        .form-control option {
+            background-color: rgba(113, 164, 242, 0.21);
+            padding: 20px;
+            border: none;
+            color: black;
+            border-radius: 9px;
+        }
+
+        select.form-control {
+            background-color: rgba(113, 164, 242, 0.21);
+            /* padding: 20px; */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: black;
+            font-size: 22px;
+            border: none;
+            border-radius: 9px;
+        }
+    
+        .RecircleLogo{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+    flex-direction: column-reverse;
+
+}
+
+.RecircleLogo img{
+    width: 80px;
+    margin-left: 15px;
+}
+
+#menuu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0px 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    background-color: #07004D;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+#bar1{
+    transform: translateY(-4px);
+
+}
+
+#bar3{
+    transform: translateY(4px);   
+}
+
+.navigate li a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#navigation{
+    z-index: 500;
+
+}
+
+.navigate li a:hover{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+
+}
+
+.navigate li{
+    list-style: none;
+    padding: 16px 0px;
+}
+
+.navigate{
+    padding: 0;
+    margin: 0 20px;
+    transition: 1s ease;
+    display: none;
+
+}
+
+.iconn bar{
+    background-color: #FFF;
+}
+
+.iconn #bar1{
+    transform: translateY(4px) rotate(-45deg);
+}
+
+.iconn #bar3{
+    transform: translateY(-6px) rotate(45deg); 
+}
+
+.iconn #bar2{
+    opacity: 0;       
+}
+
+.change{
+    background-color: #07004D;
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 30px;
+    top: 0;
+    z-index: -100;
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-color{
+    background-color: white;
+}
+
+@media only screen and (max-width:1000px) {
+    .change{
+        width:40%
+
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .change{
+        width:100% 
+    }
+}
+
+.navigate li a{
+    font-size: 20px;
+    }
+    .RegisterVendorForm1 h1{
+            text-align: center;
+            font-size: 65px;
+            color: #3D3738;
+            font-weight: bold;
+            margin-bottom: 30px
+        
+        }
+        
+        
+    #submit{
+           width: 60%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+            border: none;
+    }
+    #Back{
+            width: 60%;
+            background-color: #07004D;
+            border-radius: 9px;
+            padding: 7px;
+            text-align: center;
+            font-size: 28px;
+            border: none;
+    }
+    </style>
+    
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> Welcome to Dragon travels</title>
+</head>
+
+<body>
+    <div class =  "RecircleLogo">
+    
+        <div id="navigation">
+            <div id="menuu" onclick = "onClickmenuu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <ul class="navigate" id="navigate">
+                <li><a href = "{% url 'HomePage' %}">Home</a></li>
+                <li><a href = "{% url 'ProfilePage' %}">My Profile</a></li>     
+                <li><a href = "{% url 'InwardForm1' %}">Log Material</a></li>
+                <li><a href = "{% url 'RegistorVendorForm1' %}">Register Vendor</a></li>
+                <li><a href = "{% url 'SavedDrafts' %}">Saved Drafts</a></li>
+                <li><a href = "{% url 'Admin_Dashboard' %}">Admin Dashboard</a></li>
+                <li><a href = "{% url 'CollectionDash' %}">Collection Dashboard</a></li>
+                <li><a href = "{% url 'Login' %}">Log Out</a></li>        
+    
+            </ul>
+        </div>
+    
+        <a href = "{% url 'HomePage' %}">
+            <img src = "{% static 'images/RecircleLogo.png' %}">
+          </a>
+          
+        </div>
+
+        <div class = "RegisterVendorForm1">
+            <h1>Register Vendor Form</h1>
+        </div>
+
+    <div id="success" class="alert alert-success alert-dismissible fade" role="alert">
+        <strong>Success!</strong> Your travel request has been successfully submitted
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div id="failure" class="alert alert-danger alert-dismissible fade" role="alert">
+        <strong>Error!</strong> Your travel request has not been sent due to errors
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="container">
+
+        <form>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="name">Vehicle Number</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your username">
+                        <small id="namevalid" class="form-text text-muted invalid-feedback">
+                            Your username must be 2-10 characters long and should not start with a number
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="col-sm" style="width: 10px;">
+
+                </div> -->
+                <div class="col-sm">
+
+                     <div class="form-group">
+                        <label for="email"></label>
+                        <div class="row">
+                            <div class="col-sm"><img src="{% static 'images/Camera.png' %}" style="width: 100px;"> </div>
+                            <div class="col-sm" style="text-align: left; ">
+                                <div class="row"><p style="font-size: 22px;">Vehicle Side*</p></div>
+                                <div class="row"><p style="font-size: 16px; margin-top: -15px;">Less than 3 MB</p></div>
+                            </div>
+                            <div class="col-sm">
+                                <p style="color: #56946C; font-weight: bold; font-size: 20px; text-align: right;">Scanned</p>
+                            </div>
+                        </div>
+                        
+                        <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                            Your email must be a valid email
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row" >
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <div class="row">
+                            <div class="col-sm"><img src="{% static 'images/Camera.png' %}" style="width: 100px;"> </div>
+                            <div class="col-sm" style="text-align: left; ">
+                                <div class="row"><p style="font-size: 24px;">No. Plate*</p></div>
+                                <div class="row"><p style="font-size: 16px; margin-top: -15px;">Less than 3 MB</p></div>
+                            </div>
+                            <div class="col-sm">
+                                <p style="color: #56946C; font-weight: bold; font-size: 20px; text-align: right;">Scanned</p>
+                            </div>
+                        </div>
+                        
+                        <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                            Your email must be a valid email
+                        </small>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="PhoneNumber">Weigh Slip Bridge Number*</label>
+                        <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter Phone Number">
+                        <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                            Your Phone Number must be 10-digit and should not contain text
+                        </small>
+                    </div>
+
+                   
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <div class="row">
+                            <div class="col-sm"><img src="{% static 'images/Camera.png' %}" style="width: 100px;"> </div>
+                            <div class="col-sm" style="text-align: left; ">
+                                <div class="row"><p style="font-size: 24px;">Vehicle Back*</p></div>
+                                <div class="row"><p style="font-size: 16px; margin-top: -15px;">Less than 3 MB</p></div>
+                            </div>
+                            <div class="col-sm">
+                                <p style="color: #56946C; font-weight: bold; font-size: 20px; text-align: right;">Scanned</p>
+                            </div>
+                        </div>
+                        
+                        <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                            Your email must be a valid email
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="col-sm" style="width: 10px;">
+
+                </div> -->
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <div class="row">
+                            <div class="col-sm"><img src="{% static 'images/Camera.png' %}" style="width: 100px;"> </div>
+                            <div class="col-sm" style="text-align: left; ">
+                                <div class="row"><p style="font-size: 20px;">Weigh Slip Pic*</p></div>
+                                <div class="row"><p style="font-size: 16px; margin-top: -15px;">Less than 3 MB</p></div>
+                            </div>
+                            <div class="col-sm">
+                                <p style="color: #56946C; font-weight: bold; font-size: 20px; text-align: right;">Scanned</p>
+                            </div>
+                        </div>
+                        
+                        <small id="emailvalid" class="form-text text-muted invalid-feedback">
+                            Your email must be a valid email
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+         
+            <div class="row" style="margin-top: 60px;">
+                <div class="col-sm d-flex justify-content-center" ><button id="Back" class="btn btn-primary " >Back</button>
+                </div>
+                <div class="col-sm d-flex justify-content-center"><button id="submit" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        console.log("This is project 4");
+        const name = document.getElementById('name');
+        const phone = document.getElementById('PhoneNumber');
+        let validPhone = false;
+        let validUser = false;
+        $('#failure').hide();
+        $('#success').hide();
+
+        // console.log(name, email, phone);
+        name.addEventListener('blur', () => {
+            console.log("name is blurred");
+            // Validate name here
+            let regex = /^[a-zA-Z]([0-9a-zA-Z]){2,255}$/;
+            let str = name.value;
+            console.log(regex, str);
+            if (regex.test(str)) {
+                console.log('Your name is valid');
+                name.classList.remove('is-invalid');
+                validUser = true;
+            }
+            else {
+                console.log('Your name is not valid');
+                name.classList.add('is-invalid');
+                validUser = false;
+
+            }
+        })
+
+        phone.addEventListener('blur', () => {
+            console.log("phone is blurred");
+            // Validate phone here
+            let regex = /^([0-9]){10}$/;
+            let str = phone.value;
+            console.log(regex, str);
+            if (regex.test(str)) {
+                console.log('Your phone is valid');
+                phone.classList.remove('is-invalid');
+                validPhone = true;
+            }
+            else {
+                console.log('Your phone is not valid');
+                phone.classList.add('is-invalid');
+                validPhone = false;
+
+            }
+        })
+
+        let submit = document.getElementById('submit');
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            console.log('You clicked on submit');
+            console.log(validUser, validPhone);
+
+            // Submit your form here
+            if ((validUser || name.value.length === 0) && validPhone) {
+                let failure = document.getElementById('failure');
+
+                console.log('Phone, email and user are valid. Submitting the form');
+                let success = document.getElementById('success');
+                success.classList.add('show');
+                // failure.classList.remove('show');
+                // $('#failure').alert('close');
+                $('#failure').hide();
+                $('#success').show();
+                setTimeout(function() {window.location = "{% url 'RegisterVendorPage2' %}" });
+
+            }
+            else {
+
+                console.log('One of Phone, email or user are not valid. Hence not submitting the form. Please correct the errors and try again');
+                let failure = document.getElementById('failure');
+                failure.classList.add('show');
+                // success.classList.remove('show');
+                // $('#success').alert('hide');
+                $('#success').hide();
+                $('#failure').show();
+            }
+
+        })
+        let Back = document.getElementById('Back');
+            Back.addEventListener('click', (e) => {
+            e.preventDefault();
+            setTimeout(function() {window.location = "{% url 'InwardChoices' %}" });
+
+            })
+    </script>
+</body>
+
+</html>
